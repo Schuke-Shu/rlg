@@ -1,0 +1,33 @@
+# ============ #
+#  全局配置文件  #
+# ============ #
+
+# 项目配置
+rlg:
+  # 项目信息
+  project-info:
+    # 项目名称
+    name: Red-Leaf-Garden resource management system
+    # 项目版本
+    version: 1.0
+    # 版权年份
+    copyright-year:
+
+# Web服务配置
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+
+#mybatis配置
+mybatis:
+  configuration:
+    # 开启驼峰命名映射
+    map-underscore-to-camel-case: true
+  # Mapper.xml文件位置
+  mapper-locations: classpath*:mapper/*Mapper.xml
+
+#logger日志配置
+logging:
+  level:
+    root: info
