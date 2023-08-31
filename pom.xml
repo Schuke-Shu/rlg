@@ -15,10 +15,7 @@
     <version>1.0</version>
 
     <name>Red-leaf Garden resource management system</name>
-    <description>
-        红叶园资源管理系统
-        以网盘为基础做扩展，集成生活中所需的各种功能
-    </description>
+    <description>红叶园资源管理系统</description>
 
     <packaging>pom</packaging>
 
@@ -50,20 +47,13 @@
                 <artifactId>core</artifactId>
                 <version>${mdk4j.version}</version>
             </dependency>
+            <!-- 导入 spring-boot 版本管理 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot</artifactId>
+                <artifactId>spring-boot-starter-parent</artifactId>
                 <version>${spring-boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
