@@ -42,17 +42,19 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- mdk4j -->
             <dependency>
                 <groupId>icu.mabbit.mdk4j</groupId>
                 <artifactId>core</artifactId>
                 <version>${mdk4j.version}</version>
             </dependency>
+
             <!-- 导入 spring-boot 版本管理 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-parent</artifactId>
-                <version>${spring-boot.version}</version>
                 <type>pom</type>
+                <version>${spring-boot.version}</version>
                 <scope>import</scope>
             </dependency>
         </dependencies>
