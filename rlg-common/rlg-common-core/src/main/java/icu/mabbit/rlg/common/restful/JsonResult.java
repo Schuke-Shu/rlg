@@ -1,0 +1,59 @@
+package icu.mabbit.rlg.common.restful;
+
+import icu.mabbit.rlg.common.enums.ServiceCode;
+
+import java.io.Serializable;
+
+/**
+ * <h2>restful风格JSON数据主体类</h2>
+ *
+ * @author 一只枫兔
+ * @Project rlg
+ * @Module common-core
+ * @Date 2023/9/2 15:56
+ */
+public class JsonResult<D>
+        implements Serializable
+{
+    /**
+     * 业务状态码
+     */
+    private final String code;
+    /**
+     * 业务处理成功时返回的数据
+     */
+    private final D data;
+    /**
+     * 业务处理失败时返回的信息
+     */
+    private final String msg;
+
+    public JsonResult(D data)
+    {
+        this.code = ServiceCode.SUCCESS.value();
+        this.data = data;
+        this.msg = null;
+    }
+
+    public JsonResult(ServiceCode code, String msg)
+    {
+        this.code = code.value();
+        this.data = null;
+        this.msg = msg;
+    }
+
+    public String code()
+    {
+        return code;
+    }
+
+    public D data()
+    {
+        return data;
+    }
+
+    public String msg()
+    {
+        return msg;
+    }
+}

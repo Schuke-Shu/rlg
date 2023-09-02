@@ -3,7 +3,9 @@
 /**
  * 
  * @author 一只枫兔
- * @date ${DATE} ${TIME}
+ * @Project ${PROJECT_NAME}
+ * @Module
+ * @Date ${DATE} ${TIME}
  */
 public class ${NAME}
 {

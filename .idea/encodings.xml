@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/authentication/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/authentication/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-auth/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-common/rlg-common-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-common/rlg-common-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-service/rlg-service-disk/rlg-service-disk-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-service/rlg-service-disk/rlg-service-disk-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-service/rlg-service-disk/rlg-service-disk-impl/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-service/rlg-service-disk/rlg-service-disk-impl/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-service/rlg-service-disk/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-service/rlg-service-disk/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-service/rlg-service-user/rlg-service-user-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-service/rlg-service-user/rlg-service-user-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-service/rlg-service-user/rlg-service-user-impl/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-service/rlg-service-user/rlg-service-user-impl/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-service/rlg-service-user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-service/rlg-service-user/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
