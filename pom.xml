@@ -34,8 +34,8 @@
         <spring-boot.version>2.7.15</spring-boot.version>
 
         <rlg-common-core.version>1.0</rlg-common-core.version>
-        <rlg-service-user.version>1.0</rlg-service-user.version>
         <rlg-service-disk.version>1.0</rlg-service-disk.version>
+        <rlg-service-user.version>1.0</rlg-service-user.version>
     </properties>
 
     <dependencyManagement>
