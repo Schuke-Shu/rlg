@@ -14,6 +14,13 @@
     <version>1.0</version>
 
     <description>红叶园多功能生活服务平台网关</description>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <finalName>${project.artifactId}</finalName>

@@ -10,18 +10,28 @@ package icu.mabbit.rlg.common.enums;
  */
 public enum ServiceCode
 {
-    SUCCESS("0")
-    ,;
+    OK(0, "请求成功"),
+    ERR_UNKNOWN(1, "未知错误"),
+    ERR_USER(0xA0001, "用户端错误"),
+    ;
 
-    private final String value;
+    private final int code;
 
-    ServiceCode(String value)
+    private final String msg;
+
+    ServiceCode(int code, String msg)
     {
-        this.value = value;
+        this.code = code;
+        this.msg = msg;
     }
 
-    public String value()
+    public int code()
     {
-        return value;
+        return code;
+    }
+
+    public String msg()
+    {
+        return msg;
     }
 }

@@ -18,7 +18,7 @@ public class JsonResult<D>
     /**
      * 业务状态码
      */
-    private final String code;
+    private final int code;
     /**
      * 业务处理成功时返回的数据
      */
@@ -30,19 +30,19 @@ public class JsonResult<D>
 
     public JsonResult(D data)
     {
-        this.code = ServiceCode.SUCCESS.value();
+        this.code = ServiceCode.OK.code();
         this.data = data;
         this.msg = null;
     }
 
     public JsonResult(ServiceCode code, String msg)
     {
-        this.code = code.value();
+        this.code = code.code();
         this.data = null;
         this.msg = msg;
     }
 
-    public String code()
+    public int code()
     {
         return code;
     }

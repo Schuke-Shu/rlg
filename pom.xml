@@ -31,12 +31,30 @@
 
         <mdk4j.version>1.0</mdk4j.version>
 
+        <knife4j.version>2.0.9</knife4j.version>
         <spring-boot.version>2.7.15</spring-boot.version>
+        <lombok.verison>1.18.22</lombok.verison>
 
         <rlg-common-core.version>1.0</rlg-common-core.version>
         <rlg-service-disk.version>1.0</rlg-service-disk.version>
         <rlg-service-user.version>1.0</rlg-service-user.version>
     </properties>
+
+    <dependencies>
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.verison}</version>
+        </dependency>
+
+        <!-- Spring Boot Knife4j：在线API -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
+        </dependency>
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>
