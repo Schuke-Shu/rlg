@@ -10,15 +10,19 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>rlg-common-core</artifactId>
+    <artifactId>rlg-common-data</artifactId>
     <version>1.0</version>
 
-    <description>红叶园多功能生活服务平台通用模块核心子模块</description>
-    
+    <description>红叶园多功能生活服务平台通用模块数据子模块</description>
+
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>icu.mabbit.rlg</groupId>
+            <artifactId>rlg-common-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 </project>

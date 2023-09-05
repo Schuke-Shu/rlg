@@ -18,5 +18,10 @@
 
     <modules>
         <module>rlg-common-core</module>
+        <module>rlg-common-data</module>
+        <module>rlg-common-swagger</module>
+        <module>rlg-common-security</module>
+        <module>rlg-common-redis</module>
+        <module>rlg-common-test</module>
     </modules>
 </project>

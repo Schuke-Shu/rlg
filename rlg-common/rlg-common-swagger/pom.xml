@@ -10,15 +10,15 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>rlg-common-core</artifactId>
+    <artifactId>rlg-common-swagger</artifactId>
     <version>1.0</version>
 
-    <description>红叶园多功能生活服务平台通用模块核心子模块</description>
-    
+    <description>红叶园多功能生活服务平台通用模块api文档子模块</description>
+
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-openapi3-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 </project>

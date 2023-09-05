@@ -10,15 +10,15 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>rlg-common-core</artifactId>
+    <artifactId>rlg-common-security</artifactId>
     <version>1.0</version>
 
-    <description>红叶园多功能生活服务平台通用模块核心子模块</description>
-    
+    <description>红叶园多功能生活服务平台通用模块安全认证子模块</description>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
     </dependencies>
 </project>

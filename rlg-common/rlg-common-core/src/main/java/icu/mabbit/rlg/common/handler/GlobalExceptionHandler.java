@@ -5,7 +5,6 @@ import icu.mabbit.rlg.common.exception.ServiceException;
 import icu.mabbit.rlg.common.restful.FailedResult;
 import icu.mabbit.rlg.common.restful.R;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  */
 @Slf4j
 @RestControllerAdvice
-@Order
 public class GlobalExceptionHandler
 {
     /**
@@ -32,6 +30,11 @@ public class GlobalExceptionHandler
         return R.fail(e);
     }
 
+    static
+    {
+        System.err.println("-- GlobalExceptionHandler handleUnknownError，打印异常堆栈信息语句未关闭"); // 作提醒用
+    }
+
     /**
      * 处理所有未处理异常
      *
@@ -40,8 +43,7 @@ public class GlobalExceptionHandler
      */
     public FailedResult handleUnknownError(Throwable e)
     {
-//        System.err.println("-- GlobalExceptionHandler handleUnknownError，打印异常堆栈信息语句未关闭"); // 作提醒用
-//        e.printStackTrace(); // 生产环境下关闭，必须与上方语句同开同关
+        e.printStackTrace(); // 生产环境下关闭，必须与上方静态块中语句同开同关
         log.error("-- Unhandled error: {}, msg: {}", e.getClass(), e.getMessage());
         return R.fail(ServiceCode.ERR_UNKNOWN, "服务器忙，请重试");
     }

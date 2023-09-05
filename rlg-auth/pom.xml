@@ -17,8 +17,17 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>icu.mabbit.rlg</groupId>
+            <artifactId>rlg-common-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>icu.mabbit.rlg</groupId>
+            <artifactId>rlg-common-swagger</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>icu.mabbit.rlg</groupId>
+            <artifactId>rlg-common-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
