@@ -46,10 +46,7 @@ public class SecurityConfig
     protected SecurityFilterChain securityFilterChain(HttpSecurity http)
             throws Exception
     {
-        for (String s : securityProperties.getUriWhiteList())
-            System.out.println(s);
-
-        return http
+        http
                 // 启用Security框架自带的CorsFilter过滤器，对OPTIONS请求放行
                 .cors()
                 .and()
@@ -63,7 +60,10 @@ public class SecurityConfig
                 .and()
                 // 禁用“防止伪造的跨域攻击”防御机制
                 .csrf()
-                .disable()
-                .build();
+                .disable();
+
+        // TODO 添加自定义登录验证类
+
+        return http.build();
     }
 }

@@ -1,7 +1,7 @@
 package icu.mabbit.rlg.common.consts;
 
 /**
- * <h2>全局常量类</h2>
+ * <h2>全局常量接口</h2>
  *
  * @author 一只枫兔
  * @Project rlg

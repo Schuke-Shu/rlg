@@ -4,11 +4,9 @@ rlg:
   swagger:
     version: ${rlg.project-info.version}
     group-name: ${rlg.module-info.name}
-    title: 身份认证
-    description: 红叶园多功能生活服务平台身份认证中心后台API文档
-    term-of-service-url: http://www.apache.org/licenses/LICENSE-2.0
   # security配置
   security:
+    enable-login-auth: true
     # url白名单
     uri-white-list:
       - /doc.html
