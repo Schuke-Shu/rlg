@@ -1,0 +1,6 @@
+server:
+  port: 10087
+
+springdoc:
+  api-docs:
+    enabled: true

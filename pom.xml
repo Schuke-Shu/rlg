@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>icu.mabbit.rlg</groupId>
-    <artifactId>global</artifactId>
+    <artifactId>parent</artifactId>
     <version>1.0</version>
 
     <name>Red-leaf Garden multi-functional life service platform</name>
@@ -31,11 +31,19 @@
 
         <mdk4j.version>1.0</mdk4j.version>
 
-        <knife4j.version>2.0.9</knife4j.version>
+        <knife4j.version>4.3.0</knife4j.version>
+        <mybatis.version>2.2.2</mybatis.version>
+        <snakeyaml.version>2.0</snakeyaml.version>
         <spring-boot.version>2.7.15</spring-boot.version>
         <lombok.verison>1.18.22</lombok.verison>
 
+        <rlg-common-captcha.version>1.0</rlg-common-captcha.version>
         <rlg-common-core.version>1.0</rlg-common-core.version>
+        <rlg-common-data.version>1.0</rlg-common-data.version>
+        <rlg-common-redis.version>1.0</rlg-common-redis.version>
+        <rlg-common-security.version>1.0</rlg-common-security.version>
+        <rlg-common-swagger.version>1.0</rlg-common-swagger.version>
+        <rlg-common-test.version>1.0</rlg-common-test.version>
         <rlg-service-disk.version>1.0</rlg-service-disk.version>
         <rlg-service-user.version>1.0</rlg-service-user.version>
     </properties>
@@ -47,13 +55,6 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.verison}</version>
         </dependency>
-
-        <!-- Spring Boot Knife4j：在线API -->
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
-            <version>${knife4j.version}</version>
-        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -63,6 +64,26 @@
                 <groupId>icu.mabbit.mdk4j</groupId>
                 <artifactId>core</artifactId>
                 <version>${mdk4j.version}</version>
+            </dependency>
+
+            <!-- knife4j -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-openapi3-spring-boot-starter</artifactId>
+                <version>4.3.0</version>
+            </dependency>
+
+            <!-- mybatis -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
             </dependency>
 
             <!-- 导入 spring-boot 版本管理 -->
@@ -77,8 +98,38 @@
             <!-- System version management -->
             <dependency>
                 <groupId>icu.mabbit.rlg</groupId>
+                <artifactId>rlg-common-captcha</artifactId>
+                <version>${rlg-common-captcha.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.mabbit.rlg</groupId>
                 <artifactId>rlg-common-core</artifactId>
                 <version>${rlg-common-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.mabbit.rlg</groupId>
+                <artifactId>rlg-common-data</artifactId>
+                <version>${rlg-common-data.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.mabbit.rlg</groupId>
+                <artifactId>rlg-common-redis</artifactId>
+                <version>${rlg-common-redis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.mabbit.rlg</groupId>
+                <artifactId>rlg-common-security</artifactId>
+                <version>${rlg-common-security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.mabbit.rlg</groupId>
+                <artifactId>rlg-common-swagger</artifactId>
+                <version>${rlg-common-swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.mabbit.rlg</groupId>
+                <artifactId>rlg-common-test</artifactId>
+                <version>${rlg-common-test.version}</version>
             </dependency>
             <dependency>
                 <groupId>icu.mabbit.rlg</groupId>

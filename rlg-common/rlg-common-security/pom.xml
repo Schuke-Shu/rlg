@@ -20,5 +20,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>icu.mabbit.rlg</groupId>
+            <artifactId>rlg-common-core</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>

@@ -50,11 +50,11 @@ public abstract class R
     /**
      * 业务处理失败
      *
-     * @param serviceException 业务异常
+     * @param e 业务异常
      * @return {@link FailedResult}
      */
-    public static <E extends ServiceException> FailedResult fail(E serviceException)
+    public static <E extends ServiceException> FailedResult fail(E e)
     {
-        return new FailedResult(serviceException.code(), serviceException.getMessage());
+        return new FailedResult(e.code(), e.getMessage());
     }
 }

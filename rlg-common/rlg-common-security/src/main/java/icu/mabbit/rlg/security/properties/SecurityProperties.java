@@ -7,7 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
- * <h2>安全认真配置</h2>
+ * <h2>安全认证配置</h2>
  *
  * @author 一只枫兔
  * @Project rlg
@@ -24,11 +24,49 @@ public class SecurityProperties
     public static final String PREFIX = "rlg.security";
 
     /**
-     * 白名单
+     * uri白名单
      */
-    private String[] whiteList;
+    private String[] uriWhiteList = {};
     /**
-     * 是否开启支持认证
+     * token配置
      */
-    private boolean authAllow;
+    private TokenProperties token;
+
+    /**
+     * <h2>token配置</h2>
+     */
+    @Getter
+    @Setter
+    @Accessors(chain = true)
+    public static class TokenProperties
+    {
+        /**
+         * token签名算法
+         */
+        private String algorithm = "HS256";
+        /**
+         * token类型
+         */
+        private String type = "JWT";
+        /**
+         * 解析和生成token使用的key
+         */
+        private String secretKey = "RedLeafGarden-JsonWebToken-SecretKey";
+        /**
+         * token有效时长（单位：分钟）
+         */
+        private Integer usableMinutes = 10080;
+        /**
+         * 长度下限
+         */
+        private Integer minLength = 105;
+        /**
+         * 存放token的请求头的名称
+         */
+        private String header = "Authorization";
+        /**
+         * token可刷新临期时间（单位：分钟），临期时间低于该值才可刷新
+         */
+        private Integer refreshAllowTime = 1500;
+    }
 }

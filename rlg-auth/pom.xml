@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>icu.mabbit.rlg</groupId>
-        <artifactId>global</artifactId>
+        <artifactId>parent</artifactId>
         <version>1.0</version>
     </parent>
 
@@ -18,7 +18,15 @@
     <dependencies>
         <dependency>
             <groupId>icu.mabbit.rlg</groupId>
+            <artifactId>rlg-common-captcha</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>icu.mabbit.rlg</groupId>
             <artifactId>rlg-common-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>icu.mabbit.rlg</groupId>
+            <artifactId>rlg-common-security</artifactId>
         </dependency>
         <dependency>
             <groupId>icu.mabbit.rlg</groupId>

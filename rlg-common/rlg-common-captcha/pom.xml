@@ -3,26 +3,22 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>icu.mabbit.rlg</groupId>
         <artifactId>rlg-common</artifactId>
         <version>1.0</version>
     </parent>
 
-    <artifactId>rlg-common-test</artifactId>
+    <artifactId>rlg-common-captcha</artifactId>
     <version>1.0</version>
 
-    <description>红叶园多功能生活服务平台通用模块测试子模块</description>
+    <description>红叶园多功能生活服务平台通用模块验证码功能子模块</description>
 
     <dependencies>
         <dependency>
             <groupId>icu.mabbit.rlg</groupId>
-            <artifactId>rlg-common-data</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <artifactId>rlg-common-core</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

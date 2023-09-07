@@ -10,7 +10,7 @@ import icu.mabbit.rlg.common.enums.ServiceCode;
  * @Module common-core
  * @Date 2023/9/2 16:51
  */
-public class ServiceException extends RuntimeException
+public class ServiceException extends BaseException
 {
     private final ServiceCode code;
 

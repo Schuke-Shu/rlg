@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>icu.mabbit.rlg</groupId>
-        <artifactId>global</artifactId>
+        <artifactId>parent</artifactId>
         <version>1.0</version>
     </parent>
 
@@ -23,5 +23,6 @@
         <module>rlg-common-security</module>
         <module>rlg-common-redis</module>
         <module>rlg-common-test</module>
+        <module>rlg-common-captcha</module>
     </modules>
 </project>

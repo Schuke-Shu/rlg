@@ -1,0 +1,11 @@
+rlg:
+  module-info:
+    name: auth
+    version: 1.0
+  swagger:
+    title: 身份认证
+    description: 红叶园多功能生活服务平台身份认证中心后台API文档
+    term-of-service-url: http://www.apache.org/licenses/LICENSE-2.0
+
+springdoc:
+  packages-to-scan: icu.mabbit.rlg.auth.controller
