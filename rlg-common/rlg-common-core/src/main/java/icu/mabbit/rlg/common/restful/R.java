@@ -1,6 +1,5 @@
 package icu.mabbit.rlg.common.restful;
 
-import icu.mabbit.rlg.common.enums.ServiceCode;
 import icu.mabbit.rlg.common.exception.ServiceException;
 
 /**
@@ -42,7 +41,7 @@ public abstract class R
      * @param msg 反馈信息
      * @return {@link FailedResult}
      */
-    public static FailedResult fail(ServiceCode code, String msg)
+    public static FailedResult fail(int code, String msg)
     {
         return new FailedResult(code, msg);
     }

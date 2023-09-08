@@ -1,6 +1,6 @@
 server:
-  port: 10087
+  port: 10086
 
 springdoc:
   api-docs:
-    enabled: true
+    enabled: false

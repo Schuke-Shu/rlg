@@ -1,12 +1,13 @@
 package icu.mabbit.rlg.redis.config;
 
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
+import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.RedisSerializer;
-
-import java.io.Serializable;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
  * <h2>redis配置类</h2>
@@ -17,17 +18,29 @@ import java.io.Serializable;
  * @Date 2023/9/5 12:00
  */
 @Configuration
+@EnableCaching
+@AutoConfigureBefore(RedisAutoConfiguration.class)
 public class RedisConfig
 {
     @Bean
-    public RedisTemplate<String, Serializable> redisTemplate(RedisConnectionFactory redisConnectionFactory)
+    @SuppressWarnings(value = {"unchecked", "rawtypes"})
+    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory connectionFactory)
     {
-        RedisTemplate<String, Serializable> redisTemplate = new RedisTemplate<>();
+        RedisTemplate<Object, Object> template = new RedisTemplate<>();
+        template.setConnectionFactory(connectionFactory);
 
-        redisTemplate.setKeySerializer(RedisSerializer.string());
-        redisTemplate.setValueSerializer(RedisSerializer.json());
-        redisTemplate.setConnectionFactory(redisConnectionFactory);
+        RedisSerializer serializer = new RedisSerializer(Object.class);
 
-        return redisTemplate;
+        // 使用StringRedisSerializer来序列化和反序列化redis的key值
+        template.setKeySerializer(new StringRedisSerializer());
+        template.setValueSerializer(serializer);
+
+        // Hash的key也采用StringRedisSerializer的序列化方式
+        template.setHashKeySerializer(new StringRedisSerializer());
+        template.setHashValueSerializer(serializer);
+
+        template.afterPropertiesSet();
+
+        return template;
     }
 }

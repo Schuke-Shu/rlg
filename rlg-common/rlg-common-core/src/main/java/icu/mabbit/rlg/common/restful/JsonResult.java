@@ -35,9 +35,9 @@ public class JsonResult<D>
         this.msg = null;
     }
 
-    public JsonResult(ServiceCode code, String msg)
+    public JsonResult(int code, String msg)
     {
-        this.code = code.code();
+        this.code = code;
         this.data = null;
         this.msg = msg;
     }

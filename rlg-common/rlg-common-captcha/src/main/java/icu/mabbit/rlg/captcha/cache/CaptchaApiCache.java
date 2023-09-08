@@ -3,6 +3,7 @@ package icu.mabbit.rlg.captcha.cache;
 import icu.mabbit.rlg.common.exception.ProjectException;
 import icu.mabbit.rlg.captcha.annotation.CaptchaApi;
 import icu.mabbit.rlg.captcha.generator.CaptchaGenerator;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -10,10 +11,7 @@ import org.springframework.web.servlet.mvc.condition.PatternsRequestCondition;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <h2>验证码接口存储器</h2>
@@ -24,6 +22,7 @@ import java.util.Map;
  * @Module common-captcha
  * @Date 2023/9/7 12:57
  */
+@Slf4j
 @Component
 public class CaptchaApiCache
         implements InitializingBean
@@ -31,13 +30,13 @@ public class CaptchaApiCache
     @Autowired
     private RequestMappingHandlerMapping mappings;
 
-    private static final Map<String, CaptchaGenerator<?>> CACHE = new HashMap<>();
+    private static final Map<String, CaptchaGenerator<?>> SERVICE_CACHE = new HashMap<>();
+
+    private static final Set<CaptchaGenerator<?>> GENERATORS = new HashSet<>();
 
     @Override
     public void afterPropertiesSet()
     {
-        List<CaptchaGenerator<?>> list = new ArrayList<>();
-
         mappings
                 .getHandlerMethods()
                 .forEach((key, value) ->
@@ -50,33 +49,7 @@ public class CaptchaApiCache
 
                              condition
                                      .getPatterns()
-                                     .forEach(
-                                             uri ->
-                                             {
-                                                 Class<? extends CaptchaGenerator<?>> cls = captchaApi.generator();
-                                                 CaptchaGenerator<?> generator = null;
-
-                                                 for (CaptchaGenerator<?> c : list)
-                                                     if (c.getClass() == cls)
-                                                         generator = c;
-
-                                                 try
-                                                 {
-                                                     if (generator == null)
-                                                     {
-                                                         generator = cls.getConstructor().newInstance();
-                                                         list.add(generator);
-                                                     }
-                                                 }
-                                                 catch (NoSuchMethodException | InvocationTargetException | InstantiationException |
-                                                        IllegalAccessException e)
-                                                 {
-                                                     throw new ProjectException(e);
-                                                 }
-
-                                                 CACHE.put(uri, generator);
-                                             }
-                                     );
+                                     .forEach(uri -> put(uri, captchaApi.generator()));
                          });
     }
 
@@ -86,7 +59,7 @@ public class CaptchaApiCache
      */
     public boolean has(String uri)
     {
-        return CACHE.containsKey(uri);
+        return SERVICE_CACHE.containsKey(uri);
     }
 
     /**
@@ -95,8 +68,49 @@ public class CaptchaApiCache
      * @param uri uri
      * @return {@link CaptchaGenerator}
      */
-    public CaptchaGenerator<?> generator(String uri)
+    public CaptchaGenerator<?> get(String uri)
     {
-        return CACHE.get(uri);
+        return SERVICE_CACHE.get(uri);
+    }
+
+    /**
+     * 添加验证码服务uri
+     *
+     * @param uri uri
+     * @param generator {@link CaptchaGenerator}
+     */
+    public void put(String uri, Class<? extends CaptchaGenerator<?>> generator)
+    {
+        CaptchaGenerator<?> g = getGenerator(generator);
+        log.debug("Detected captcha api: uri[{}], captcha generator: [{}]", uri, g);
+        SERVICE_CACHE.put(uri, g);
+    }
+
+    private static CaptchaGenerator<?> getGenerator(Class<? extends CaptchaGenerator<?>> generator)
+    {
+        CaptchaGenerator<?> g = null;
+
+        for (CaptchaGenerator<?> v : GENERATORS)
+            if (v.getClass() == generator)
+                g = v;
+
+        try
+        {
+            if (g == null)
+            {
+                g = generator.getConstructor().newInstance();
+                GENERATORS.add(g);
+            }
+        }
+        catch (NoSuchMethodException e)
+        {
+            throw new ProjectException(e).detail("验证码生成器必须包含一个空参构造方法");
+        }
+        catch (InvocationTargetException | InstantiationException | IllegalAccessException e)
+        {
+            throw new ProjectException(e);
+        }
+
+        return g;
     }
 }

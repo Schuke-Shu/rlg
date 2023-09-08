@@ -24,6 +24,7 @@
         <module>rlg-service</module>
         <module>rlg-auth</module>
         <module>rlg-gateway</module>
+        <module>rlg-test</module>
     </modules>
 
     <properties>
@@ -32,6 +33,7 @@
         <mdk4j.version>1.0</mdk4j.version>
 
         <knife4j.version>4.3.0</knife4j.version>
+        <fastjson.version>2.0.25</fastjson.version>
         <mybatis.version>2.2.2</mybatis.version>
         <snakeyaml.version>2.0</snakeyaml.version>
         <spring-boot.version>2.7.15</spring-boot.version>
@@ -46,6 +48,8 @@
         <rlg-common-test.version>1.0</rlg-common-test.version>
         <rlg-service-disk.version>1.0</rlg-service-disk.version>
         <rlg-service-user.version>1.0</rlg-service-user.version>
+
+        <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
     </properties>
 
     <dependencies>
@@ -54,6 +58,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.verison}</version>
+            <optional>true</optional>
         </dependency>
 
         <!-- Spring Boot configuration processor -->
@@ -71,6 +76,13 @@
                 <groupId>icu.mabbit.mdk4j</groupId>
                 <artifactId>core</artifactId>
                 <version>${mdk4j.version}</version>
+            </dependency>
+
+            <!-- Alibaba Fastjson -->
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson.version}</version>
             </dependency>
 
             <!-- knife4j -->
@@ -152,33 +164,31 @@
     </dependencyManagement>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring-boot.version}</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>repackage</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
 
     <repositories>

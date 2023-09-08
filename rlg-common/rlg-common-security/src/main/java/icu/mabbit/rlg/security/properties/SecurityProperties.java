@@ -26,7 +26,7 @@ public class SecurityProperties
     /**
      * 启用登陆验证功能，若开启，则在spring-security中添加自定义的登录验证类
      */
-    private boolean enableLoginAuth = false;
+    private Boolean enableLoginAuth = false;
     /**
      * uri白名单
      */

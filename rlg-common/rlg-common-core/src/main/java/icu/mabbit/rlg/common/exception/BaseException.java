@@ -1,5 +1,7 @@
 package icu.mabbit.rlg.common.exception;
 
+import icu.mabbit.rlg.common.enums.ServiceCode;
+
 /**
  * <h2>异常基类</h2>
  *
@@ -14,6 +16,10 @@ public class BaseException
     private static final long serialVersionUID = 1L;
 
     /**
+     * 状态码
+     */
+    private int code;
+    /**
      * 细节信息，用于内部调试
      */
     private String detail;
@@ -22,14 +28,36 @@ public class BaseException
     {
     }
 
-    public BaseException(String message)
+    public BaseException(int code)
     {
-        super(message);
+        this.code = code;
     }
 
-    public BaseException(String message, Throwable cause)
+    public BaseException(int code, String msg)
     {
-        super(message, cause);
+        super(msg);
+        this.code = code;
+    }
+
+    public BaseException(ServiceCode code)
+    {
+        this(code.code(), code.msg());
+    }
+
+    public BaseException(ServiceCode code, String msg)
+    {
+        this(code.code(), msg);
+    }
+
+    public int code()
+    {
+        return code;
+    }
+
+    public BaseException code(int code)
+    {
+        this.code = code;
+        return this;
     }
 
     public BaseException(Throwable cause)
@@ -46,15 +74,5 @@ public class BaseException
     {
         this.detail = detail;
         return this;
-    }
-
-    public String msg()
-    {
-        return super.getMessage();
-    }
-
-    public Throwable cause()
-    {
-        return super.getCause();
     }
 }

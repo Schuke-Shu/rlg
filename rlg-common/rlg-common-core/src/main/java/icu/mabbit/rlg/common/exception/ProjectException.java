@@ -1,5 +1,7 @@
 package icu.mabbit.rlg.common.exception;
 
+import icu.mabbit.rlg.common.enums.ServiceCode;
+
 /**
  * <h2>全局项目异常</h2>
  *
@@ -15,14 +17,24 @@ public class ProjectException
     {
     }
 
-    public ProjectException(String message)
+    public ProjectException(int code)
     {
-        super(message);
+        super(code);
     }
 
-    public ProjectException(String message, Throwable cause)
+    public ProjectException(int code, String msg)
     {
-        super(message, cause);
+        super(code, msg);
+    }
+
+    public ProjectException(ServiceCode code)
+    {
+        super(code);
+    }
+
+    public ProjectException(ServiceCode code, String msg)
+    {
+        super(code, msg);
     }
 
     public ProjectException(Throwable cause)

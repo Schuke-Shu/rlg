@@ -35,7 +35,7 @@ public class GlobalExceptionHandler
      * @param e 业务异常
      * @return {@link FailedResult}
      */
-    @ExceptionHandler()
+    @ExceptionHandler
     public FailedResult handleServiceException(ServiceException e)
     {
         return R.fail(e);
@@ -43,7 +43,7 @@ public class GlobalExceptionHandler
 
     static
     {
-        System.err.println("-- GlobalExceptionHandler handleUnknownError，打印异常堆栈信息语句未关闭"); // 作提醒用
+        System.err.println("-- GlobalExceptionHandler handleUnknownError()，打印异常堆栈信息语句未关闭"); // 作提醒用
     }
 
     /**

@@ -1,7 +1,5 @@
 package icu.mabbit.rlg.common.restful;
 
-import icu.mabbit.rlg.common.enums.ServiceCode;
-
 /**
  * <h2>业务处理失败返回的数据</h2>
  *
@@ -12,7 +10,7 @@ import icu.mabbit.rlg.common.enums.ServiceCode;
  */
 public class FailedResult extends JsonResult<Object>
 {
-    public FailedResult(ServiceCode code, String msg)
+    public FailedResult(int code, String msg)
     {
         super(code, msg);
     }

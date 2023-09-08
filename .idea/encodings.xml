@@ -11,6 +11,8 @@
     <file url="file://$PROJECT_DIR$/rlg-auth/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rlg-common/rlg-common-captcha/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rlg-common/rlg-common-captcha/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-common/rlg-common-config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-common/rlg-common-config/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rlg-common/rlg-common-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rlg-common/rlg-common-core/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rlg-common/rlg-common-data/src/main/java" charset="UTF-8" />
@@ -41,6 +43,8 @@
     <file url="file://$PROJECT_DIR$/rlg-service/rlg-service-user/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rlg-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rlg-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rlg-test/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>

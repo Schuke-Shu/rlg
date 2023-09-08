@@ -1,0 +1,17 @@
+server:
+  port: 10086
+
+springdoc:
+  api-docs:
+    enabled: true
+
+rlg:
+  security:
+    # url白名单
+    uri-white-list:
+      - /doc.html
+      - /v3/api-docs/swagger-config
+      - /v3/api-docs
+      - /webjars/**
+      - /favicon.ico
+      - /hello

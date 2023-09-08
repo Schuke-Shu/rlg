@@ -8,6 +8,11 @@
         <option value="$PROJECT_DIR$/rlg-common/rlg-common-test/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/rlg-common/rlg-common-config/pom.xml" />
+      </set>
+    </option>
   </component>
   <component name="PWA">
     <option name="enabled" value="true" />

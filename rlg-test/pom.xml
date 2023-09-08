@@ -5,25 +5,35 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>icu.mabbit.rlg</groupId>
-        <artifactId>rlg-common</artifactId>
+        <artifactId>parent</artifactId>
         <version>1.0</version>
     </parent>
 
-    <artifactId>rlg-common-captcha</artifactId>
-    <version>1.0</version>
+    <artifactId>rlg-test</artifactId>
 
-    <description>红叶园多功能生活服务平台通用模块验证码功能子模块</description>
+    <description>红叶园多功能生活服务平台测试模块</description>
 
     <dependencies>
         <dependency>
             <groupId>icu.mabbit.rlg</groupId>
+            <artifactId>rlg-common-captcha</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>icu.mabbit.rlg</groupId>
             <artifactId>rlg-common-core</artifactId>
-            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>icu.mabbit.rlg</groupId>
+            <artifactId>rlg-common-security</artifactId>
         </dependency>
         <dependency>
             <groupId>icu.mabbit.rlg</groupId>
             <artifactId>rlg-common-swagger</artifactId>
-            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>icu.mabbit.rlg</groupId>
+            <artifactId>rlg-common-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

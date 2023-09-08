@@ -12,21 +12,32 @@ import icu.mabbit.rlg.common.enums.ServiceCode;
  */
 public class ServiceException extends BaseException
 {
-    private final ServiceCode code;
+    public ServiceException()
+    {
+    }
+
+    public ServiceException(int code)
+    {
+        super(code);
+    }
+
+    public ServiceException(int code, String msg)
+    {
+        super(code, msg);
+    }
 
     public ServiceException(ServiceCode code)
     {
-        this(code, code.msg());
+        super(code);
     }
 
     public ServiceException(ServiceCode code, String msg)
     {
-        super(msg);
-        this.code = code;
+        super(code, msg);
     }
 
-    public ServiceCode code()
+    public ServiceException(Throwable cause)
     {
-        return code;
+        super(cause);
     }
 }

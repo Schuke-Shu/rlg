@@ -1,0 +1,8 @@
+rlg:
+  module-info:
+    name: test
+    version: 1.0
+  swagger:
+    title: 测试
+    description: 红叶园多功能生活服务平台测试模块后台API文档
+    term-of-service-url: http://www.apache.org/licenses/LICENSE-2.0
