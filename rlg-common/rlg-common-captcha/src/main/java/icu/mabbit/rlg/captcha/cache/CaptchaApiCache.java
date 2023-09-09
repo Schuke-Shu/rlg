@@ -46,7 +46,8 @@ public class CaptchaApiCache
 
                              if (condition == null)
                              {
-                                 class NullPatternsConditionException extends ProjectException
+                                 class NullPatternsConditionException
+                                         extends ProjectException
                                  {
                                      public NullPatternsConditionException()
                                      {
@@ -89,7 +90,7 @@ public class CaptchaApiCache
     /**
      * 添加验证码服务uri
      *
-     * @param uri uri
+     * @param uri       uri
      * @param generator {@link CaptchaGenerator}
      */
     public void put(String uri, Class<? extends CaptchaGenerator<?>> generator)
