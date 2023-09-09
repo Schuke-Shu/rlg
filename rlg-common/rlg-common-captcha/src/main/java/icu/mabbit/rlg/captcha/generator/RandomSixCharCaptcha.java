@@ -12,7 +12,7 @@ import icu.mabbit.rlg.captcha.entity.Captcha;
  * @Date 2023/9/7 11:29
  */
 public class RandomSixCharCaptcha
-    implements CaptchaGenerator<String>
+        implements CaptchaGenerator<String>
 {
     private static final String CHARS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final int CHARS_LEN_PLUS_ONE = 63;
