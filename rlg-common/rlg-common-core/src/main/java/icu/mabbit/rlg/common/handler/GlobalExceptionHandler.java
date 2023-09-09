@@ -21,11 +21,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler
 {
-    private static final ServiceException COMMON = new ServiceException(ServiceCode.ERR_UNKNOWN, "服务器忙，请重试");
-    // TODO 异常处理
+    private static final ServiceException COMMON = new ServiceException(ServiceCode.ERR_UNKNOWN.code(), "服务器忙，请重试");
+
     @ExceptionHandler(ProjectException.class)
     public FailedResult handleProjectException()
     {
+        // TODO 项目异常处理
         return R.fail(COMMON);
     }
 

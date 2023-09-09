@@ -44,7 +44,20 @@ public class CaptchaApiCache
                              CaptchaApi captchaApi = value.getMethodAnnotation(CaptchaApi.class);
                              PatternsRequestCondition condition = key.getPatternsCondition();
 
-                             if (captchaApi == null || condition == null)
+                             if (condition == null)
+                             {
+                                 class NullPatternsConditionException extends ProjectException
+                                 {
+                                     public NullPatternsConditionException()
+                                     {
+                                         super("检查配置[spring.mvc.pathmatch.matching-strategy]的值是否为[ant_path_matcher]");
+                                     }
+                                 }
+
+                                 throw new NullPatternsConditionException();
+                             }
+
+                             if (captchaApi == null)
                                  return;
 
                              condition
@@ -104,7 +117,7 @@ public class CaptchaApiCache
         }
         catch (NoSuchMethodException e)
         {
-            throw new ProjectException(e).detail("验证码生成器必须包含一个空参构造方法");
+            throw new ProjectException("验证码生成器必须包含一个空参构造方法", e);
         }
         catch (InvocationTargetException | InstantiationException | IllegalAccessException e)
         {

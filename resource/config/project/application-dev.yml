@@ -14,4 +14,3 @@ rlg:
       - /v3/api-docs
       - /webjars/**
       - /favicon.ico
-      - /hello

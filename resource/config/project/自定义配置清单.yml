@@ -1,0 +1,64 @@
+rlg:
+  # 项目信息
+  project-info:
+    # 项目名称
+    name:
+    # 项目版本
+    version:
+  # 模块信息
+  module-info:
+    # 模块名称
+    name:
+    # 模块版本
+    version:
+    #模块描述
+    description:
+  # 接口文档配置
+  swagger:
+    # 版本号
+    version: ${rlg.project-info.version}
+    # Controller包路径
+    base-package:
+    # 分组名称
+    group-name: ${rlg.module-info.name}
+    # 主机名称
+    host:
+    # 标题
+    title:
+    # 简介
+    description:
+    # 服务条款URL
+    term-of-service-url:
+    # 联系人姓名
+    contact-name:
+    # 联系网址
+    contact-url:
+    # 联系邮箱
+    contact-email:
+  # 安全认证配置
+  security:
+    # 是否启用登陆验证功能
+    enable-login-auth:
+    # url白名单
+    uri-white-list:
+      - /doc.html
+      - /v3/api-docs/swagger-config
+      - /v3/api-docs
+      - /webjars/**
+      - /favicon.ico
+    # token配置
+    token:
+      # token签名算法
+      algorithm:
+      # token类型
+      type:
+      # 解析和生成token使用的key
+      secret-key:
+      # token有效时长（单位：分钟）
+      usable-minutes:
+      # 长度下限
+      min-length:
+      # 存放token的请求头的名称
+      header:
+      # token可刷新临期时间（单位：分钟）
+      refresh-allow-time:
