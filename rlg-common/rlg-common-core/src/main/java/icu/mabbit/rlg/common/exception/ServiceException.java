@@ -34,4 +34,9 @@ public class ServiceException extends BaseException
     {
         this(code.code(), code.msg());
     }
+
+    public int code()
+    {
+        return code;
+    }
 }
