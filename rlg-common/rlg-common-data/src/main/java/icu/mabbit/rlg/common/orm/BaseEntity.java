@@ -1,4 +1,4 @@
-package icu.mabbit.rlg.common.template;
+package icu.mabbit.rlg.common.orm;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
  * @Module common-core
  * @Date 2023/9/4 13:18
  */
-public abstract class EntityTemplate<K extends Serializable>
+public abstract class BaseEntity<K extends Serializable>
         implements Serializable
 {
     protected K id;

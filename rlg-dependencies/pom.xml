@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>icu.mabbit</groupId>
+        <artifactId>mabbit</artifactId>
+        <version>1</version>
+        <relativePath />
+    </parent>
+
+    <groupId>icu.mabbit.rlg</groupId>
+    <artifactId>rlg-dependencies</artifactId>
+    <version>1.0</version>
+
+    <description>红叶园多功能生活服务平台系统内部依赖管理</description>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <mdk4j.version>1.0</mdk4j.version>
+
+        <rlg-common-captcha.version>1.0</rlg-common-captcha.version>
+        <rlg-common-core.version>1.0</rlg-common-core.version>
+        <rlg-common-data.version>1.0</rlg-common-data.version>
+        <rlg-common-redis.version>1.0</rlg-common-redis.version>
+        <rlg-common-security.version>1.0</rlg-common-security.version>
+        <rlg-common-swagger.version>1.0</rlg-common-swagger.version>
+        <rlg-common-test.version>1.0</rlg-common-test.version>
+        <rlg-service-disk.version>1.0</rlg-service-disk.version>
+        <rlg-service-user.version>1.0</rlg-service-user.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- mdk4j -->
+            <dependency>
+                <groupId>icu.mabbit.mdk4j</groupId>
+                <artifactId>mdk4j-dependencies</artifactId>
+                <version>${mdk4j.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- System version management -->
+            <dependency>
+                <groupId>icu.mabbit.rlg</groupId>
+                <artifactId>rlg-common-captcha</artifactId>
+                <version>${rlg-common-captcha.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.mabbit.rlg</groupId>
+                <artifactId>rlg-common-core</artifactId>
+                <version>${rlg-common-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.mabbit.rlg</groupId>
+                <artifactId>rlg-common-data</artifactId>
+                <version>${rlg-common-data.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.mabbit.rlg</groupId>
+                <artifactId>rlg-common-redis</artifactId>
+                <version>${rlg-common-redis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.mabbit.rlg</groupId>
+                <artifactId>rlg-common-security</artifactId>
+                <version>${rlg-common-security.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.mabbit.rlg</groupId>
+                <artifactId>rlg-common-swagger</artifactId>
+                <version>${rlg-common-swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.mabbit.rlg</groupId>
+                <artifactId>rlg-common-test</artifactId>
+                <version>${rlg-common-test.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.mabbit.rlg</groupId>
+                <artifactId>rlg-service-disk-api</artifactId>
+                <version>${rlg-service-disk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>icu.mabbit.rlg</groupId>
+                <artifactId>rlg-service-user-api</artifactId>
+                <version>${rlg-service-user.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

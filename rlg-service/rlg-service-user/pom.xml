@@ -13,7 +13,7 @@
     <artifactId>rlg-service-user</artifactId>
     <version>1.0</version>
 
-    <description>红叶园多功能生活服务平台用户服务子模块</description>
+    <description>红叶园多功能生活服务平台用户业务子模块</description>
 
     <packaging>pom</packaging>
 

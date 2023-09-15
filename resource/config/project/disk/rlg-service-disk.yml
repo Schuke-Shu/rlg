@@ -1,0 +1,10 @@
+rlg:
+  module-info:
+    name: disk
+    version: 1.0
+  swagger:
+    version: ${rlg.module-info.version}
+    group-name: ${rlg.module-info.name}
+    title: 网盘业务
+    description: 红叶园多功能生活服务平台网盘业务API文档
+    term-of-service-url: http://www.apache.org/licenses/LICENSE-2.0

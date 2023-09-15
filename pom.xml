@@ -8,6 +8,7 @@
         <groupId>icu.mabbit</groupId>
         <artifactId>mabbit</artifactId>
         <version>1</version>
+        <relativePath />
     </parent>
 
     <groupId>icu.mabbit.rlg</groupId>
@@ -30,24 +31,17 @@
     <properties>
         <java.version>1.8</java.version>
 
-        <mdk4j.version>1.0</mdk4j.version>
+        <rlg.dependencies.version>1.0</rlg.dependencies.version>
 
-        <knife4j.version>4.3.0</knife4j.version>
         <fastjson.version>2.0.25</fastjson.version>
+        <jjwt.version>0.9.1</jjwt.version>
+        <knife4j.version>4.3.0</knife4j.version>
         <mybatis.version>2.2.2</mybatis.version>
         <snakeyaml.version>2.0</snakeyaml.version>
         <spring-boot.version>2.7.15</spring-boot.version>
+        <spring-cloud.version>2021.0.5</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
         <lombok.verison>1.18.22</lombok.verison>
-
-        <rlg-common-captcha.version>1.0</rlg-common-captcha.version>
-        <rlg-common-core.version>1.0</rlg-common-core.version>
-        <rlg-common-data.version>1.0</rlg-common-data.version>
-        <rlg-common-redis.version>1.0</rlg-common-redis.version>
-        <rlg-common-security.version>1.0</rlg-common-security.version>
-        <rlg-common-swagger.version>1.0</rlg-common-swagger.version>
-        <rlg-common-test.version>1.0</rlg-common-test.version>
-        <rlg-service-disk.version>1.0</rlg-service-disk.version>
-        <rlg-service-user.version>1.0</rlg-service-user.version>
 
         <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
     </properties>
@@ -71,11 +65,13 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- mdk4j -->
+            <!-- Rlg inner version management -->
             <dependency>
-                <groupId>icu.mabbit.mdk4j</groupId>
-                <artifactId>core</artifactId>
-                <version>${mdk4j.version}</version>
+                <groupId>icu.mabbit.rlg</groupId>
+                <artifactId>rlg-dependencies</artifactId>
+                <version>${rlg.dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
             <!-- Alibaba Fastjson -->
@@ -83,6 +79,13 @@
                 <groupId>com.alibaba.fastjson2</groupId>
                 <artifactId>fastjson2</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- JJWT（Java json web token） -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
             </dependency>
 
             <!-- knife4j -->
@@ -105,7 +108,7 @@
                 <version>${snakeyaml.version}</version>
             </dependency>
 
-            <!-- 导入 spring-boot 版本管理 -->
+            <!-- Spring-Boot -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-parent</artifactId>
@@ -114,51 +117,22 @@
                 <scope>import</scope>
             </dependency>
 
-            <!-- System version management -->
+            <!-- Spring-Cloud 微服务 -->
             <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
-                <artifactId>rlg-common-captcha</artifactId>
-                <version>${rlg-common-captcha.version}</version>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
+
+            <!-- Spring-Cloud Alibaba 微服务 -->
             <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
-                <artifactId>rlg-common-core</artifactId>
-                <version>${rlg-common-core.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
-                <artifactId>rlg-common-data</artifactId>
-                <version>${rlg-common-data.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
-                <artifactId>rlg-common-redis</artifactId>
-                <version>${rlg-common-redis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
-                <artifactId>rlg-common-security</artifactId>
-                <version>${rlg-common-security.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
-                <artifactId>rlg-common-swagger</artifactId>
-                <version>${rlg-common-swagger.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
-                <artifactId>rlg-common-test</artifactId>
-                <version>${rlg-common-test.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
-                <artifactId>rlg-service-disk-api</artifactId>
-                <version>${rlg-service-disk.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
-                <artifactId>rlg-service-user-api</artifactId>
-                <version>${rlg-service-user.version}</version>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

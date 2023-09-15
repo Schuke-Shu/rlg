@@ -1,0 +1,4 @@
+rlg:
+  module-info:
+    name: gateway
+    version: 1.0

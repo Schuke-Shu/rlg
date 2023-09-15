@@ -1,0 +1,45 @@
+# Tomcat
+server:
+  port: 10087
+
+# Spring
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  config:
+    import:
+  application:
+    # 应用名称
+    name: rlg-auth
+  profiles:
+    # 环境配置
+    active: dev
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        # 服务注册地址
+        server-addr: ${rlg.module-info.current-host}:8848
+        group: AUTH
+        namespace: rlg
+      config:
+        # 配置中心地址
+        server-addr: 192.168.10.2:8848
+        # 配置文件格式
+        file-extension: yml
+        group: AUTH
+        namespace: rlg
+        # 共享配置
+        shared-configs:
+          - application.${spring.cloud.nacos.config.file-extension}
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+
+# 自定义配置项
+rlg:
+  module-info:
+    name: auth
+    version: 1.0
+    description: 红叶园多功能生活服务平台身份认证中心
+    current-host: 192.168.1.136

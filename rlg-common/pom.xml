@@ -22,7 +22,7 @@
         <module>rlg-common-swagger</module>
         <module>rlg-common-security</module>
         <module>rlg-common-redis</module>
-        <module>rlg-common-test</module>
         <module>rlg-common-captcha</module>
+        <module>rlg-common-test</module>
     </modules>
 </project>

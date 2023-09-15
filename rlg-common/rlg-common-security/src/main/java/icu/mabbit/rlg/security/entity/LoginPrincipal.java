@@ -1,5 +1,7 @@
 package icu.mabbit.rlg.security.entity;
 
+import icu.mabbit.rlg.security.consts.SecurityConsts;
+import io.jsonwebtoken.Claims;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,9 +22,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Accessors(chain = true)
 public class LoginPrincipal
-        implements Serializable
+        implements Serializable, SecurityConsts
 {
-    private Long id;
     private String uuid;
     /**
      * 用户名
@@ -40,4 +41,13 @@ public class LoginPrincipal
      * ip
      */
     private String ip;
+
+    public LoginPrincipal(Claims claims)
+    {
+        ip = claims.get(CLAIMS_KEY_IP, String.class);
+        uuid = claims.get(CLAIMS_KEY_UUID, String.class);
+        username = claims.get(CLAIMS_KEY_USERNAME, String.class);
+        phone = claims.get(CLAIMS_KEY_PHONE, String.class);
+        email = claims.get(CLAIMS_KEY_EMAIL, String.class);
+    }
 }

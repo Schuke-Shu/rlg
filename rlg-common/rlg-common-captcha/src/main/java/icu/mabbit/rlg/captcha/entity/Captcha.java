@@ -13,7 +13,10 @@ import java.io.Serializable;
  * @Date 2023/9/7 11:14
  */
 public class Captcha<T extends Serializable>
+        implements Serializable
 {
+    private static final long serialVersionUID = 1L;
+
     /**
      * 用于展示的验证码
      */

@@ -5,6 +5,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,9 +19,9 @@ import org.springframework.context.annotation.Configuration;
  * @Date 2023/9/4 0:24
  */
 @Configuration
+@Setter(onMethod_ = @Autowired)
 public class SwaggerConfig
 {
-    @Autowired
     private SwaggerProperties swaggerProperties;
 
     @Bean

@@ -17,6 +17,11 @@
     
     <dependencies>
         <dependency>
+            <groupId>icu.mabbit.mdk4j</groupId>
+            <artifactId>mdk4j-core</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>

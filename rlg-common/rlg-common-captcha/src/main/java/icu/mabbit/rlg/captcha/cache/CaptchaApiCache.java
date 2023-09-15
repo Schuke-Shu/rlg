@@ -3,6 +3,7 @@ package icu.mabbit.rlg.captcha.cache;
 import icu.mabbit.rlg.common.exception.ProjectException;
 import icu.mabbit.rlg.captcha.annotation.CaptchaApi;
 import icu.mabbit.rlg.captcha.generator.CaptchaGenerator;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,10 @@ import java.util.*;
  */
 @Slf4j
 @Component
+@Setter(onMethod_ = @Autowired)
 public class CaptchaApiCache
         implements InitializingBean
 {
-    @Autowired
     private RequestMappingHandlerMapping mappings;
 
     private static final Map<String, CaptchaGenerator<?>> SERVICE_CACHE = new HashMap<>();
@@ -46,16 +47,8 @@ public class CaptchaApiCache
 
                              if (condition == null)
                              {
-                                 class NullPatternsConditionException
-                                         extends ProjectException
-                                 {
-                                     public NullPatternsConditionException()
-                                     {
-                                         super("检查配置[spring.mvc.pathmatch.matching-strategy]的值是否为[ant_path_matcher]");
-                                     }
-                                 }
-
-                                 throw new NullPatternsConditionException();
+                                 log.error("Need to configure [spring.mvc.pathmatch.matching-strategy] as [ant_path_matcher]");
+                                 throw new NullPointerException("The value of class[PatternsRequestCondition] is null");
                              }
 
                              if (captchaApi == null)
@@ -65,6 +58,8 @@ public class CaptchaApiCache
                                      .getPatterns()
                                      .forEach(uri -> put(uri, captchaApi.generator()));
                          });
+
+        log.info("[CaptchaApiCache] number of captcha apis: [{}], number of generator types: [{}]", SERVICE_CACHE.size(), GENERATORS.size());
     }
 
     /**
@@ -96,7 +91,7 @@ public class CaptchaApiCache
     public void put(String uri, Class<? extends CaptchaGenerator<?>> generator)
     {
         CaptchaGenerator<?> g = getGenerator(generator);
-        log.debug("Detected captcha api: uri[{}], captcha generator: [{}]", uri, g);
+        log.trace("Detected captcha api: uri[{}], captcha generator: [{}]", uri, generator);
         SERVICE_CACHE.put(uri, g);
     }
 
@@ -118,7 +113,7 @@ public class CaptchaApiCache
         }
         catch (NoSuchMethodException e)
         {
-            throw new ProjectException("验证码生成器必须包含一个空参构造方法", e);
+            throw new ProjectException("验证码生成器必须包含一个空参构造方法");
         }
         catch (InvocationTargetException | InstantiationException | IllegalAccessException e)
         {

@@ -11,6 +11,8 @@ package icu.mabbit.rlg.common.exception;
 public class ProjectException
         extends BaseException
 {
+    private static final long serialVersionUID = 1L;
+
     public ProjectException()
     {
     }

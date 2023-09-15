@@ -1,6 +1,7 @@
 package icu.mabbit.rlg.common.config;
 
 import icu.mabbit.rlg.common.interceptor.InsertUpdateTimeInterceptor;
+import lombok.Setter;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,9 @@ import java.util.List;
  */
 @Configuration
 @MapperScan("icu.mabbit.rlg.**.mapper")
+@Setter(onMethod_ = @Autowired)
 public class MyBatisConfig
 {
-    @Autowired
     private List<SqlSessionFactory> sqlSessionFactoryList;
 
     private static final InsertUpdateTimeInterceptor INTERCEPTOR = new InsertUpdateTimeInterceptor();

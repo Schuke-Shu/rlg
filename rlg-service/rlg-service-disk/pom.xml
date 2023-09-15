@@ -13,7 +13,7 @@
     <artifactId>rlg-service-disk</artifactId>
     <version>1.0</version>
 
-    <description>红叶园多功能生活服务平台网盘服务子模块</description>
+    <description>红叶园多功能生活服务平台网盘业务子模块</description>
 
     <packaging>pom</packaging>
 

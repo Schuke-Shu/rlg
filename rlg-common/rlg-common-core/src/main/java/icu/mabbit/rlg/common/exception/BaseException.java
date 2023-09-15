@@ -11,8 +11,6 @@ package icu.mabbit.rlg.common.exception;
 public class BaseException
         extends RuntimeException
 {
-    private static final long serialVersionUID = 1L;
-
     /**
      * 细节信息，用于内部调试
      */

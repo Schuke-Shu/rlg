@@ -1,7 +1,7 @@
-package icu.mabbit.rlg.common;
+package icu.mabbit.rlg.test.mapper;
 
-import icu.mabbit.rlg.common.template.EntityTemplate;
-import icu.mabbit.rlg.common.template.MapperTemplate;
+import icu.mabbit.rlg.common.orm.BaseEntity;
+import icu.mabbit.rlg.common.orm.BaseMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -20,7 +20,7 @@ import java.lang.reflect.Method;
  * @Date 2023/9/5 13:32
  */
 @SpringBootTest
-public interface BaseMapperTest<K extends Serializable, E extends EntityTemplate<K>, M extends MapperTemplate<K, E>>
+public interface BaseMapperTest<K extends Serializable, E extends BaseEntity<K>, M extends BaseMapper<K, E>>
 {
     /**
      * 获取mapper
@@ -28,8 +28,6 @@ public interface BaseMapperTest<K extends Serializable, E extends EntityTemplate
      * @return mapper
      */
     M mapper();
-
-
 
     /**
      * 自动测试，需要在这个方法上添加{@link Test}注解，然后调用{@link BaseMapperTest#auto(String)}

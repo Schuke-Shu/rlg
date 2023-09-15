@@ -32,8 +32,7 @@
         </dependency>
         <dependency>
             <groupId>icu.mabbit.rlg</groupId>
-            <artifactId>rlg-common-test</artifactId>
-            <scope>test</scope>
+            <artifactId>rlg-common-data</artifactId>
         </dependency>
     </dependencies>
 </project>

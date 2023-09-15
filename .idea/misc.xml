@@ -11,6 +11,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/rlg-common/rlg-common-config/pom.xml" />
+        <option value="$PROJECT_DIR$/rlg-common/rlg-common-mail/pom.xml" />
       </set>
     </option>
   </component>

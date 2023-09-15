@@ -15,7 +15,7 @@ public class RandomSixCharCaptcha
         implements CaptchaGenerator<String>
 {
     private static final String CHARS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private static final int CHARS_LEN_PLUS_ONE = 63;
+    private static final int CHARS_LEN = 62;
 
     @Override
     public Captcha<String> captcha()
@@ -37,7 +37,7 @@ public class RandomSixCharCaptcha
         return
                 CHARS.charAt(
                         (int)
-                        (Math.random() * CHARS_LEN_PLUS_ONE)
+                        (Math.random() * CHARS_LEN)
                 );
     }
 }

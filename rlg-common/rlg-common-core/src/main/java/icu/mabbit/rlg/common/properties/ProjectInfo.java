@@ -6,6 +6,8 @@ import lombok.experimental.Accessors;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
+
 /**
  * <h2>项目信息</h2>
  *
@@ -20,7 +22,10 @@ import org.springframework.stereotype.Component;
 @Setter
 @Accessors(chain = true)
 public class ProjectInfo
+        implements Serializable
 {
+    private static final long serialVersionUID = 1L;
+
     public static final String PREFIX = "rlg.project-info";
 
     /**

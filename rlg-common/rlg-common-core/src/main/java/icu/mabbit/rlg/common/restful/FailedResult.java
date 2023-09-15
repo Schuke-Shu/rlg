@@ -10,6 +10,8 @@ package icu.mabbit.rlg.common.restful;
  */
 public class FailedResult extends JsonResult<Object>
 {
+    private static final long serialVersionUID = 1L;
+
     public FailedResult(int code, String msg)
     {
         super(code, msg);

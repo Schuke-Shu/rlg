@@ -1,0 +1,18 @@
+# 自定义配置项
+rlg:
+  # 安全配置
+  security:
+    # url白名单
+    uri-white-list:
+      - /doc.html
+      - /v3/api-docs/swagger-config
+      - /v3/api-docs
+      - /webjars/**
+      - /favicon.ico
+  # 文档配置
+  swagger:
+    version: ${rlg.module-info.version}
+    group-name: ${rlg.module-info.name}
+    title: 身份认证
+    description: 红叶园多功能生活服务平台身份认证中心API文档
+    term-of-service-url: http://www.apache.org/licenses/LICENSE-2.0

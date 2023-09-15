@@ -12,27 +12,19 @@ import icu.mabbit.rlg.common.enums.ServiceCode;
  */
 public class ServiceException extends BaseException
 {
+    private static final long serialVersionUID = 1L;
+
     private final int code;
 
     public ServiceException()
     {
-        code = ServiceCode.ERR_UNKNOWN.code();
-    }
-
-    public ServiceException(int code)
-    {
-        this.code = code;
-    }
-
-    public ServiceException(int code, String msg)
-    {
-        super(msg);
-        this.code = code;
+        this(ServiceCode.ERR_UNKNOWN);
     }
 
     public ServiceException(ServiceCode code)
     {
-        this(code.code(), code.msg());
+        super(code.msg());
+        this.code = code.code();
     }
 
     public int code()

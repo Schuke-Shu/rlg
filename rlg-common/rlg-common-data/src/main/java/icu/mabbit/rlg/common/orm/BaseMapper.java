@@ -1,4 +1,4 @@
-package icu.mabbit.rlg.common.template;
+package icu.mabbit.rlg.common.orm;
 
 import java.io.Serializable;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  * @Module common-core
  * @Date 2023/9/4 13:17
  */
-public interface MapperTemplate<K extends Serializable, E extends EntityTemplate<K>>
+public interface BaseMapper<K extends Serializable, E extends BaseEntity<K>>
 {
     /**
      * 添加数据，可批量

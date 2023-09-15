@@ -1,6 +1,5 @@
 package icu.mabbit.rlg.common.handler;
 
-import icu.mabbit.rlg.common.enums.ServiceCode;
 import icu.mabbit.rlg.common.exception.ProjectException;
 import icu.mabbit.rlg.common.exception.ServiceException;
 import icu.mabbit.rlg.common.restful.FailedResult;
@@ -21,7 +20,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler
 {
-    private static final ServiceException COMMON = new ServiceException(ServiceCode.ERR_UNKNOWN.code(), "服务器忙，请重试");
+    private static final ServiceException COMMON = new ServiceException();
 
     @ExceptionHandler(ProjectException.class)
     public FailedResult handleProjectException()

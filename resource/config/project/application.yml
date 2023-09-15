@@ -8,6 +8,3 @@ spring:
 rlg:
   project-info:
     version: 1.0
-  swagger:
-    version: ${rlg.project-info.version}
-    group-name: ${rlg.module-info.name}

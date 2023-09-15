@@ -2,6 +2,7 @@ package icu.mabbit.rlg.captcha.annotation;
 
 import icu.mabbit.rlg.captcha.generator.CaptchaGenerator;
 import icu.mabbit.rlg.captcha.generator.RandomSixCharCaptcha;
+import org.springframework.core.annotation.AliasFor;
 
 import java.lang.annotation.*;
 
@@ -18,5 +19,9 @@ import java.lang.annotation.*;
 @Documented
 public @interface CaptchaApi
 {
+    @AliasFor("generator")
+    Class<? extends CaptchaGenerator<?>> value() default RandomSixCharCaptcha.class;
+
+    @AliasFor("value")
     Class<? extends CaptchaGenerator<?>> generator() default RandomSixCharCaptcha.class;
 }
