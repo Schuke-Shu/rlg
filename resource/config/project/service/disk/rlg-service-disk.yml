@@ -1,0 +1,16 @@
+# Spring 配置
+spring:
+  mvc:
+    pathmatch:
+      # 默认路径匹配器
+      matching-strategy: ant_path_matcher
+
+# 自定义配置项
+rlg:
+  # 文档配置
+  swagger:
+    version: ${rlg.project-info.version}
+    group-name: ${rlg.project-info.name}
+    title: 网盘业务
+    description: 红叶园多功能生活服务平台网盘业务API文档
+    term-of-service-url: http://www.apache.org/licenses/LICENSE-2.0

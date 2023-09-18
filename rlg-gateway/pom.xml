@@ -11,9 +11,19 @@
     </parent>
 
     <artifactId>rlg-gateway</artifactId>
-    <version>1.0</version>
 
-    <description>红叶园多功能生活服务平台网关</description>
+    <name>gateway</name>
+    <description>网关</description>
+
+    <properties>
+        <app.port>10086</app.port>
+        <app.name>${project.artifactId}</app.name>
+        <app.active>dev</app.active>
+
+        <nacos.group>AUTH</nacos.group>
+        <nacos.host>192.168.10.2</nacos.host>
+        <nacos.namespace>rlg</nacos.namespace>
+    </properties>
 
     <dependencies>
         <dependency>

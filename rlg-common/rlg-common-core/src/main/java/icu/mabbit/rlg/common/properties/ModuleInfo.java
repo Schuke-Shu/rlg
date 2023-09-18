@@ -33,11 +33,7 @@ public class ModuleInfo
      */
     private String name;
     /**
-     * 版本
-     */
-    private String version;
-    /**
-     * 简介
+     * 描述
      */
     private String description;
 }

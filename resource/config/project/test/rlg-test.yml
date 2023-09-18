@@ -1,0 +1,27 @@
+# Spring 配置
+spring:
+  mvc:
+    pathmatch:
+      # 默认路径匹配器
+      matching-strategy: ant_path_matcher
+
+# 自定义配置项
+rlg:
+  # 文档配置
+  swagger:
+    version: ${rlg.project-info.version}
+    group-name: ${rlg.project-info.name}
+    title: 测试
+    description: 红叶园多功能生活服务平台测试模块API文档
+    term-of-service-url: http://www.apache.org/licenses/LICENSE-2.0
+  # 安全配置
+  security:
+    # url白名单
+    uri-white-list:
+      - /doc.html
+      - /v3/api-docs/swagger-config
+      - /v3/api-docs
+      - /webjars/**
+      - /favicon.ico
+      - /hello
+      - /nacos

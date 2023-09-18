@@ -17,5 +17,6 @@ public class RlgTestApplication
     public static void main(String[] args)
     {
         SpringApplication.run(RlgTestApplication.class, args);
+        System.out.println("\n(♥◠‿◠)ﾉﾞ  测试模块启动成功  ლ(´ڡ`ლ)ﾞ\n");
     }
 }

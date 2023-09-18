@@ -1,10 +1,14 @@
 package icu.mabbit.rlg.captcha.annotation;
 
-import icu.mabbit.rlg.captcha.generator.CaptchaGenerator;
-import icu.mabbit.rlg.captcha.generator.RandomSixCharCaptcha;
+import icu.mabbit.rlg.captcha.enums.CaptchaGetter;
 import org.springframework.core.annotation.AliasFor;
 
-import java.lang.annotation.*;
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+
+import static java.lang.annotation.ElementType.METHOD;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
  * <h2>验证码api标记</h2>
@@ -14,14 +18,14 @@ import java.lang.annotation.*;
  * @Module common-captcha
  * @Date 2023/9/7 10:31
  */
-@Target(ElementType.METHOD)
-@Retention(RetentionPolicy.RUNTIME)
+@Target(METHOD)
+@Retention(RUNTIME)
 @Documented
 public @interface CaptchaApi
 {
-    @AliasFor("generator")
-    Class<? extends CaptchaGenerator<?>> value() default RandomSixCharCaptcha.class;
+    @AliasFor("type")
+    CaptchaGetter value() default CaptchaGetter.RANDOM_SIX_CHAR;
 
     @AliasFor("value")
-    Class<? extends CaptchaGenerator<?>> generator() default RandomSixCharCaptcha.class;
+    CaptchaGetter type() default CaptchaGetter.RANDOM_SIX_CHAR;
 }

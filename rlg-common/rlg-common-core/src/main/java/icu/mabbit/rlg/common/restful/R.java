@@ -30,7 +30,7 @@ public abstract class R
      * @return 业务处理成功
      * @param <D> {@link SuccessResult}
      */
-    public static <D> SuccessResult<D> OK(D data)
+    public static <D> SuccessResult<D> ok(D data)
     {
         return new SuccessResult<>(data);
     }

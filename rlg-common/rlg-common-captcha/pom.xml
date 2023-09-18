@@ -11,7 +11,6 @@
     </parent>
 
     <artifactId>rlg-common-captcha</artifactId>
-    <version>1.0</version>
 
     <description>红叶园多功能生活服务平台通用模块验证码功能子模块</description>
 
@@ -19,6 +18,11 @@
         <dependency>
             <groupId>icu.mabbit.rlg</groupId>
             <artifactId>rlg-common-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>icu.mabbit.rlg</groupId>
+            <artifactId>rlg-common-swagger</artifactId>
         </dependency>
     </dependencies>
 </project>

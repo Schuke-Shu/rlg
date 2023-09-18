@@ -13,26 +13,20 @@
     <artifactId>rlg-auth</artifactId>
     <version>1.0</version>
 
-    <description>红叶园多功能生活服务平台身份认证中心</description>
+    <name>auth</name>
+    <description>身份认证中心</description>
+
+    <properties>
+        <app.port>10087</app.port>
+        <app.name>${project.artifactId}</app.name>
+        <app.active>dev</app.active>
+
+        <nacos.group>AUTH</nacos.group>
+        <nacos.host>192.168.10.2</nacos.host>
+        <nacos.namespace>rlg</nacos.namespace>
+    </properties>
 
     <dependencies>
-        <!-- SpringCloud Alibaba Nacos -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
-
-        <!-- SpringCloud Alibaba Nacos Config -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>icu.mabbit.rlg</groupId>
             <artifactId>rlg-common-captcha</artifactId>

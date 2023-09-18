@@ -11,7 +11,6 @@
     </parent>
 
     <artifactId>rlg-common-security</artifactId>
-    <version>1.0</version>
 
     <description>红叶园多功能生活服务平台通用模块安全认证子模块</description>
 
@@ -19,11 +18,6 @@
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
             <artifactId>fastjson2</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
         </dependency>
 
         <dependency>

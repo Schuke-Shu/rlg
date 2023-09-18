@@ -18,13 +18,16 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  */
 @Slf4j
 @RestControllerAdvice
+@SuppressWarnings("CallToPrintStackTrace")
 public class GlobalExceptionHandler
 {
     private static final ServiceException COMMON = new ServiceException();
 
-    @ExceptionHandler(ProjectException.class)
-    public FailedResult handleProjectException()
+    @ExceptionHandler()
+    public FailedResult handleProjectException(ProjectException e)
     {
+        if (log.isDebugEnabled())
+            e.printStackTrace();
         // TODO 项目异常处理
         return R.fail(COMMON);
     }
@@ -38,12 +41,9 @@ public class GlobalExceptionHandler
     @ExceptionHandler
     public FailedResult handleServiceException(ServiceException e)
     {
+        if (log.isDebugEnabled())
+            e.printStackTrace();
         return R.fail(e);
-    }
-
-    static
-    {
-        System.err.println("-- GlobalExceptionHandler handleUnknownError()，打印异常堆栈信息语句未关闭"); // 作提醒用
     }
 
     /**
@@ -55,7 +55,8 @@ public class GlobalExceptionHandler
     @ExceptionHandler
     public FailedResult handleUnknownError(Throwable e)
     {
-        e.printStackTrace(); // 生产环境下关闭，必须与上方静态块中语句同开同关
+        if (log.isDebugEnabled())
+            e.printStackTrace();
         log.error("-- Unhandled error: {}, msg: {}", e.getClass(), e.getMessage());
         return R.fail(COMMON);
     }

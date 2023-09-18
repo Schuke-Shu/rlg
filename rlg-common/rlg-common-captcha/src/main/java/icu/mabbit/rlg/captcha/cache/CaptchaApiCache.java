@@ -1,6 +1,6 @@
 package icu.mabbit.rlg.captcha.cache;
 
-import icu.mabbit.rlg.common.exception.ProjectException;
+import icu.mabbit.rlg.captcha.enums.CaptchaGetter;
 import icu.mabbit.rlg.captcha.annotation.CaptchaApi;
 import icu.mabbit.rlg.captcha.generator.CaptchaGenerator;
 import lombok.Setter;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.mvc.condition.PatternsRequestCondition;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
 /**
@@ -31,35 +30,35 @@ public class CaptchaApiCache
 {
     private RequestMappingHandlerMapping mappings;
 
-    private static final Map<String, CaptchaGenerator<?>> SERVICE_CACHE = new HashMap<>();
-
-    private static final Set<CaptchaGenerator<?>> GENERATORS = new HashSet<>();
+    private static final Map<String, CaptchaGetter> SERVICE_CACHE = new HashMap<>();
 
     @Override
     public void afterPropertiesSet()
     {
         mappings
                 .getHandlerMethods()
-                .forEach((key, value) ->
-                         {
-                             CaptchaApi captchaApi = value.getMethodAnnotation(CaptchaApi.class);
-                             PatternsRequestCondition condition = key.getPatternsCondition();
+                .forEach(
+                        (k, v) ->
+                        {
+                            CaptchaApi captchaApi = v.getMethodAnnotation(CaptchaApi.class);
+                            PatternsRequestCondition condition = k.getPatternsCondition();
 
-                             if (condition == null)
-                             {
-                                 log.error("Need to configure [spring.mvc.pathmatch.matching-strategy] as [ant_path_matcher]");
-                                 throw new NullPointerException("The value of class[PatternsRequestCondition] is null");
-                             }
+                            if (condition == null)
+                            {
+                                log.error("Need to configure [spring.mvc.pathmatch.matching-strategy] as [ant_path_matcher]");
+                                throw new NullPointerException();
+                            }
 
-                             if (captchaApi == null)
-                                 return;
+                            if (captchaApi == null)
+                                return;
 
-                             condition
-                                     .getPatterns()
-                                     .forEach(uri -> put(uri, captchaApi.generator()));
-                         });
+                            condition
+                                    .getPatterns()
+                                    .forEach(uri -> put(uri, captchaApi.type()));
+                        }
+                );
 
-        log.info("[CaptchaApiCache] number of captcha apis: [{}], number of generator types: [{}]", SERVICE_CACHE.size(), GENERATORS.size());
+        log.info("Captcha-api parse successfully, the number of captcha apis: [{}]", SERVICE_CACHE.size());
     }
 
     /**
@@ -72,12 +71,12 @@ public class CaptchaApiCache
     }
 
     /**
-     * 根据指定uri获取验证码生成器
+     * 根据指定uri获取验证码获取器
      *
      * @param uri uri
      * @return {@link CaptchaGenerator}
      */
-    public CaptchaGenerator<?> get(String uri)
+    public CaptchaGetter get(String uri)
     {
         return SERVICE_CACHE.get(uri);
     }
@@ -85,41 +84,12 @@ public class CaptchaApiCache
     /**
      * 添加验证码服务uri
      *
-     * @param uri       uri
-     * @param generator {@link CaptchaGenerator}
+     * @param uri  uri
+     * @param getter {@link CaptchaGetter}
      */
-    public void put(String uri, Class<? extends CaptchaGenerator<?>> generator)
+    public void put(String uri, CaptchaGetter getter)
     {
-        CaptchaGenerator<?> g = getGenerator(generator);
-        log.trace("Detected captcha api: uri[{}], captcha generator: [{}]", uri, generator);
-        SERVICE_CACHE.put(uri, g);
-    }
-
-    private static CaptchaGenerator<?> getGenerator(Class<? extends CaptchaGenerator<?>> generator)
-    {
-        CaptchaGenerator<?> g = null;
-
-        for (CaptchaGenerator<?> v : GENERATORS)
-            if (v.getClass() == generator)
-                g = v;
-
-        try
-        {
-            if (g == null)
-            {
-                g = generator.getConstructor().newInstance();
-                GENERATORS.add(g);
-            }
-        }
-        catch (NoSuchMethodException e)
-        {
-            throw new ProjectException("验证码生成器必须包含一个空参构造方法");
-        }
-        catch (InvocationTargetException | InstantiationException | IllegalAccessException e)
-        {
-            throw new ProjectException(e);
-        }
-
-        return g;
+        log.trace("Detected captcha uri: [{}], captcha getter: {}", uri, getter);
+        SERVICE_CACHE.put(uri, getter);
     }
 }

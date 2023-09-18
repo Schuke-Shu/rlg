@@ -17,5 +17,6 @@ public class RlgAuthApplication
     public static void main(String[] args)
     {
         SpringApplication.run(RlgAuthApplication.class, args);
+        System.out.println("\n(♥◠‿◠)ﾉﾞ  身份认证中心启动成功  ლ(´ڡ`ლ)ﾞ\n");
     }
 }

@@ -1,18 +1,15 @@
 Spring Boot Version: ${spring-boot.version}
 Spring Application Name: ${spring.application.name}
+${AnsiColor.BLUE}${AnsiStyle.BOLD}
+,------. ,--.    ,----.            ,---.            ,--.  ,--.
+|  .--. '|  |   '  .-./   ,-----. /  O  \ ,--.,--.,-'  '-.|  ,---.
+|  '--'.'|  |   |  | .---.'-----'|  .-.  ||  ||  |'-.  .-'|  .-.  |
+|  |\  \ |  '--.'  '--'  |       |  | |  |'  ''  '  |  |  |  | |  |
+`--' '--'`-----' `------'        `--' `--' `----'   `--'  `--' `--'
 
-${AnsiColor.BRIGHT_RED}${AnsiStyle.BOLD}
-
- ____    __       ____              ______           __    __
-/\  _`\ /\ \     /\  _`\           /\  _  \         /\ \__/\ \
-\ \ \L\ \ \ \    \ \ \L\_\         \ \ \L\ \  __  __\ \ ,_\ \ \___
- \ \ ,  /\ \ \  __\ \ \L_L   _______\ \  __ \/\ \/\ \\ \ \/\ \  _ `\
-  \ \ \\ \\ \ \L\ \\ \ \/, \/\______\\ \ \/\ \ \ \_\ \\ \ \_\ \ \ \ \
-   \ \_\ \_\ \____/ \ \____/\/______/ \ \_\ \_\ \____/ \ \__\\ \_\ \_\
-    \/_/\/ /\/___/   \/___/            \/_/\/_/\/___/   \/__/ \/_/\/_/
-
-:: RedLeaf Garden Auth ::
-(${rlg.module-info.version})
+:: ${rlg.project-info.name} ::
+(v${rlg.project-info.version})
+Module: [${rlg.module-info.name}]
 ${AnsiColor.BRIGHT_YELLOW}
 //                           _ooOoo_                            //
 //                          o8888888o                           //
@@ -32,9 +29,10 @@ ${AnsiColor.BRIGHT_YELLOW}
 //             \  \ `-.   _ __\ /__ _/   .-` /  /               //
 //       ========`-.____`-.________/___.-`____.-'========       //
 //                            `=---='                           //
-//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^      //
-${AnsiColor.BRIGHT_RED}                              佛祖保佑                             ${AnsiColor.BRIGHT_YELLOW}
-${AnsiColor.BRIGHT_RED}             永不宕机     需求不改     永无BUG    上线顺利             ${AnsiColor.BRIGHT_YELLOW}
-${AnsiColor.BRIGHT_RED}             身体健康     头发永驻     告别单身    升职加薪             ${AnsiColor.BRIGHT_YELLOW}
+//      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^      //${AnsiColor.BRIGHT_RED}
+                              佛祖保佑
+             永不宕机     需求不改     永无BUG    上线顺利
+             身体健康     头发永驻     告别单身    升职加薪${AnsiColor.BRIGHT_YELLOW}
 //                                                              //
 ${AnsiColor.BRIGHT_WHITE}
+${字体类型 Soft，字体宽度 Smush (R)}

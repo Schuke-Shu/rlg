@@ -2,4 +2,5 @@ icu.mabbit.rlg.common.config.WebMvcConfig
 icu.mabbit.rlg.common.handler.GlobalExceptionHandler
 icu.mabbit.rlg.common.properties.ModuleInfo
 icu.mabbit.rlg.common.properties.ProjectInfo
-icu.mabbit.rlg.common.util.HttpUtil
+icu.mabbit.rlg.common.properties.TokenProperties
+icu.mabbit.rlg.common.util.TokenUtil

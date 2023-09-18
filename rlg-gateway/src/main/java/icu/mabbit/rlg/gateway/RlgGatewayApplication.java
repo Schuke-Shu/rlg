@@ -17,5 +17,6 @@ public class RlgGatewayApplication
     public static void main(String[] args)
     {
         SpringApplication.run(RlgGatewayApplication.class, args);
+        System.out.println("\n(♥◠‿◠)ﾉﾞ  网关启动成功  ლ(´ڡ`ლ)ﾞ\n");
     }
 }

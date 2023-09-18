@@ -2,11 +2,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-application-*.yml
-!application-module.yml
 !resource/**
-rlg-dependencies/**
-!rlg-dependencies/pom.xml
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

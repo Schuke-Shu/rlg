@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -30,6 +31,8 @@ public class SecurityConfig
 {
     private SecurityProperties securityProperties;
     private TokenFilter tokenFilter;
+
+    // TODO 添加自定义验证器
 
     // 加密编码器
     @Bean
@@ -58,11 +61,17 @@ public class SecurityConfig
                         // 禁用“防止伪造的跨域攻击”防御机制
                         .csrf()
                         .disable()
+                        .formLogin()
+                        .disable()
                         // 将token过滤器置于Spring Security的“用户名密码认证信息过滤器”之前
                         .addFilterBefore(
                                 tokenFilter,
                                 UsernamePasswordAuthenticationFilter.class
                         )
+                        // 设置Session创建策略：从不创建
+                        .sessionManagement()
+                        .sessionCreationPolicy(SessionCreationPolicy.NEVER)
+                        .and()
                         .build();
     }
 }

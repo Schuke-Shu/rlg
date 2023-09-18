@@ -27,10 +27,6 @@ public class UserDetail
     private final Long id;
     private final String uuid;
     /**
-     * 头像地址
-     */
-    private final String avatarUrl;
-    /**
      * 手机号
      */
     private final String phone;
@@ -38,10 +34,6 @@ public class UserDetail
      * 邮箱
      */
     private final String email;
-    /**
-     * 用户当前登录的ip地址
-     */
-    private final String ip;
 
     public UserDetail(
             Long id,
@@ -50,8 +42,6 @@ public class UserDetail
             String password,
             String phone,
             String email,
-            String ip,
-            String avatarUrl,
             boolean enabled,
             Collection<? extends GrantedAuthority> authorities
     )
@@ -61,7 +51,5 @@ public class UserDetail
         this.uuid = uuid;
         this.phone = phone;
         this.email = email;
-        this.ip = ip;
-        this.avatarUrl = avatarUrl;
     }
 }

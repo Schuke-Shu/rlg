@@ -44,7 +44,6 @@ public class LoginPrincipal
 
     public LoginPrincipal(Claims claims)
     {
-        ip = claims.get(CLAIMS_KEY_IP, String.class);
         uuid = claims.get(CLAIMS_KEY_UUID, String.class);
         username = claims.get(CLAIMS_KEY_USERNAME, String.class);
         phone = claims.get(CLAIMS_KEY_PHONE, String.class);
