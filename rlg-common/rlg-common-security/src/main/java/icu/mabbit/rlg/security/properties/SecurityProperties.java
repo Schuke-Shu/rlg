@@ -31,46 +31,4 @@ public class SecurityProperties
      * uri白名单
      */
     private String[] uriWhiteList = {};
-    /**
-     * token配置
-     */
-    private TokenProperties token = new TokenProperties();
-
-    /**
-     * <h2>token配置</h2>
-     */
-    @Getter
-    @Setter
-    @Accessors(chain = true)
-    public static class TokenProperties
-    {
-        /**
-         * token签名算法
-         */
-        private String algorithm = "HS256";
-        /**
-         * token类型
-         */
-        private String type = "JWT";
-        /**
-         * 解析和生成token使用的key
-         */
-        private String secretKey = "RedLeafGarden-JsonWebToken-SecretKey";
-        /**
-         * token有效时长（单位：分钟）
-         */
-        private Integer usableMinutes = 10080;
-        /**
-         * 长度下限
-         */
-        private Integer minLength = 105;
-        /**
-         * 存放token的请求头的名称
-         */
-        private String header = "Authorization";
-        /**
-         * token可刷新临期时间（单位：分钟），临期时间低于该值才可刷新
-         */
-        private Integer refreshAllowTime = 1500;
-    }
 }

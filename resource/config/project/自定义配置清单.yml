@@ -5,13 +5,13 @@ rlg:
     name:
     # 项目版本
     version:
+    # 描述
+    description:
   # 模块信息
   module-info:
-    # 模块名称
+    # 名称
     name:
-    # 模块版本
-    version:
-    #模块描述
+    # 描述
     description:
   # 接口文档配置
   swagger:
@@ -46,19 +46,19 @@ rlg:
       - /v3/api-docs
       - /webjars/**
       - /favicon.ico
-    # token配置
-    token:
-      # token签名算法
-      algorithm:
-      # token类型
-      type:
-      # 解析和生成token使用的key
-      secret-key:
-      # token有效时长（单位：分钟）
-      usable-minutes:
-      # 长度下限
-      min-length:
-      # 存放token的请求头的名称
-      header:
-      # token可刷新临期时间（单位：分钟）
-      refresh-allow-time:
+  # token配置
+  token:
+    # token签名算法
+    algorithm:
+    # token类型
+    type:
+    # 解析和生成token使用的key
+    secret-key:
+    # token有效时长（单位：分钟）
+    usable-minutes:
+    # 长度下限
+    min-length:
+    # 存放token的请求头的名称
+    header:
+    # token可刷新临期时间（单位：分钟）
+    refresh-allow-time:

@@ -11,7 +11,18 @@
 
     <artifactId>rlg-test</artifactId>
 
-    <description>红叶园多功能生活服务平台测试模块</description>
+    <name>test</name>
+    <description>测试模块</description>
+
+    <properties>
+        <app.port>9999</app.port>
+        <app.name>${project.artifactId}</app.name>
+        <app.active>dev</app.active>
+
+        <nacos.group>TEST</nacos.group>
+        <nacos.host>192.168.10.2</nacos.host>
+        <nacos.namespace>rlg</nacos.namespace>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -30,9 +41,9 @@
             <groupId>icu.mabbit.rlg</groupId>
             <artifactId>rlg-common-swagger</artifactId>
         </dependency>
-        <dependency>
-            <groupId>icu.mabbit.rlg</groupId>
-            <artifactId>rlg-common-data</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>icu.mabbit.rlg</groupId>-->
+<!--            <artifactId>rlg-common-data</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 </project>

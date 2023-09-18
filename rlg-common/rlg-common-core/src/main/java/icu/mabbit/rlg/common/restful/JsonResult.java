@@ -1,6 +1,8 @@
 package icu.mabbit.rlg.common.restful;
 
 import icu.mabbit.rlg.common.enums.ServiceCode;
+import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -12,6 +14,8 @@ import java.io.Serializable;
  * @Module common-core
  * @Date 2023/9/2 15:56
  */
+@Data
+@Accessors(chain = true)
 public class JsonResult<D>
         implements Serializable
 {

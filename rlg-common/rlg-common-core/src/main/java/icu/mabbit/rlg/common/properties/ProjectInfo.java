@@ -31,9 +31,13 @@ public class ProjectInfo
     /**
      * 名称
      */
-    private String name = "红叶园多功能生活服务平台";
+    private String name;
     /**
      * 版本
      */
     private String version;
+    /**
+     * 描述
+     */
+    private String description;
 }

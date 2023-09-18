@@ -7,8 +7,9 @@ ${AnsiColor.BLUE}${AnsiStyle.BOLD}
 |  |\  \ |  '--.'  '--'  |       |  | |  |'  ''  '  |  |  |  | |  |
 `--' '--'`-----' `------'        `--' `--' `----'   `--'  `--' `--'
 
-:: RedLeaf Garden Auth ::
-(v${rlg.module-info.version})
+:: ${rlg.project-info.name} ::
+(v${rlg.project-info.version})
+Module: [${rlg.module-info.name}]
 ${AnsiColor.BRIGHT_YELLOW}
 //                           _ooOoo_                            //
 //                          o8888888o                           //
@@ -31,6 +32,6 @@ ${AnsiColor.BRIGHT_YELLOW}
 //      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^      //${AnsiColor.BRIGHT_RED}
                               佛祖保佑
              永不宕机     需求不改     永无BUG    上线顺利
-             身体健康     头发永驻     告别单身    升职加薪
-${AnsiColor.BRIGHT_YELLOW}//                                                              //
+             身体健康     头发永驻     告别单身    升职加薪${AnsiColor.BRIGHT_YELLOW}
+//                                                              //
 ${AnsiColor.BRIGHT_WHITE}

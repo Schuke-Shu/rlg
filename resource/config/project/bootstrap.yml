@@ -1,0 +1,43 @@
+# Tomcat
+server:
+  port: @app.port@
+
+# Spring 配置
+spring:
+  profiles:
+    # 环境配置
+    active: @app.active@
+  application:
+    # 应用名称
+    name: @app.name@
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        # 服务注册地址
+        server-addr: @nacos.host@:8848
+        group: @nacos.group@
+        namespace: @nacos.namespace@
+      config:
+        # 配置中心地址
+        server-addr: @nacos.host@:8848
+        # 配置文件格式
+        file-extension: yml
+        group: @nacos.group@
+        namespace: @nacos.namespace@
+
+# 自定义配置项
+rlg:
+  # 项目信息
+  project-info:
+    # 名称
+    name: @root.name@
+    # 版本
+    version: @root.version@
+  # 模块信息
+  module-info:
+    # 名称
+    name: @project.name@
+    # 描述
+    description: @project.description@
