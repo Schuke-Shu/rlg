@@ -26,41 +26,41 @@ public class SwaggerProperties
     /**
      * 版本号
      */
-    private String version;
+    private String version = "";
     /**
      * Controller包路径
      */
-    private String basePackage;
+    private String basePackage = "";
     /**
      * 分组名称
      */
-    private String groupName;
+    private String groupName = "";
     /**
      * 主机名称
      */
-    private String host;
+    private String host = "";
     /**
      * 标题
      */
-    private String title;
+    private String title = "";
     /**
      * 简介
      */
-    private String description;
+    private String description = "";
     /**
      * 服务条款URL
      */
-    private String termOfServiceUrl;
+    private String termOfServiceUrl = "";
     /**
      * 联系人姓名
      */
-    private String contactName;
+    private String contactName = "";
     /**
      * 联系网址
      */
-    private String contactUrl;
+    private String contactUrl = "";
     /**
      * 联系邮箱
      */
-    private String contactEmail;
+    private String contactEmail = "";
 }

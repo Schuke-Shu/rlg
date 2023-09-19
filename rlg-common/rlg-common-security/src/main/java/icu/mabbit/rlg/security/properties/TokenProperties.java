@@ -1,4 +1,4 @@
-package icu.mabbit.rlg.common.properties;
+package icu.mabbit.rlg.security.properties;
 
 import lombok.Getter;
 import lombok.Setter;

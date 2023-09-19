@@ -26,6 +26,9 @@ spring:
         file-extension: yml
         group: @nacos.group@
         namespace: @nacos.namespace@
+        shared-configs:
+          - data-id: application.yml
+            group: PUBLIC
 
 # 自定义配置项
 rlg:

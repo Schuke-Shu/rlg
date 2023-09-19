@@ -1,3 +1,6 @@
+icu.mabbit.rlg.security.config.AuthManager
 icu.mabbit.rlg.security.config.SecurityConfig
 icu.mabbit.rlg.security.filter.TokenFilter
 icu.mabbit.rlg.security.properties.SecurityProperties
+icu.mabbit.rlg.security.properties.TokenProperties
+icu.mabbit.rlg.security.util.TokenUtil

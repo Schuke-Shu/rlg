@@ -1,6 +1,0 @@
-# Spring 配置
-spring:
-  mvc:
-    pathmatch:
-      # 默认路径匹配器
-      matching-strategy: ant_path_matcher

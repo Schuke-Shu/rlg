@@ -2,17 +2,18 @@ package icu.mabbit.rlg.security.filter;
 
 import com.alibaba.fastjson2.JSON;
 import icu.mabbit.mdk4j.core.util.StringUtil;
-import icu.mabbit.rlg.common.properties.TokenProperties;
+import icu.mabbit.rlg.security.token.AuthToken;
+import icu.mabbit.rlg.security.properties.TokenProperties;
 import icu.mabbit.rlg.common.restful.R;
 import icu.mabbit.rlg.common.util.ServletUtil;
-import icu.mabbit.rlg.common.util.TokenUtil;
+import icu.mabbit.rlg.security.util.SecurityUtil;
+import icu.mabbit.rlg.security.util.TokenUtil;
 import icu.mabbit.rlg.security.consts.SecurityConsts;
-import icu.mabbit.rlg.security.entity.LoginPrincipal;
+import icu.mabbit.rlg.security.entity.Principal;
 import io.jsonwebtoken.*;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -55,7 +56,7 @@ public class TokenFilter
         // 从请求头获取token
         String token = req.getHeader(tokenProperties.getHeader());
 
-        if (!validToken(token))
+        if (!valid(token))
         {
             // token无效，放行
             chain.doFilter(req, res);
@@ -70,23 +71,17 @@ public class TokenFilter
         }
         catch (TokenUtil.TokenParseException e)
         {
-            ServletUtil.response(
-                    JSON.toJSONString(
-                            R.fail(e)
-                    )
-            );
+            ServletUtil.response(R.fail(e));
             return;
         }
 
         // 从Claims中获取数据
-        LoginPrincipal principal = new LoginPrincipal(claims);
+        Principal principal = new Principal(claims);
 
-        // 创建Authentication对象，存入到SecurityContext中
-        Authentication authentication = new UsernamePasswordAuthenticationToken(
+        // 创建Authentication对象
+        Authentication auth = new AuthToken(
                 // 封装Principal（当事人）对象
                 principal,
-                // 凭证（这里不需要）
-                null,
                 // 解析json形式的权限集合
                 JSON.parseArray(
                         claims.get(CLAIMS_KEY_AUTHORITIES, String.class),
@@ -94,17 +89,17 @@ public class TokenFilter
                 )
         );
 
-        log.trace("Login authentication: {}", authentication);
-        SecurityContextHolder
-                .getContext()
-                .setAuthentication(authentication);
+        log.trace("Login authentication: {}", auth);
+
+        // 存入到SecurityContext中
+        SecurityUtil.setAuthentication(auth);
 
         // 放行
         log.debug("Token parsed success, to next...");
         chain.doFilter(req, res);
     }
 
-    private boolean validToken(String token)
+    private boolean valid(String token)
     {
         boolean valid = !StringUtil.isBlank(token) && token.length() < tokenProperties.getMinLength();
 

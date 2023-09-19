@@ -1,10 +1,10 @@
-package icu.mabbit.rlg.common.util;
+package icu.mabbit.rlg.security.util;
 
 import icu.mabbit.mdk4j.core.lang.Assert;
 import icu.mabbit.rlg.common.enums.ServiceCode;
 import icu.mabbit.rlg.common.exception.PropertiesException;
 import icu.mabbit.rlg.common.exception.ServiceException;
-import icu.mabbit.rlg.common.properties.TokenProperties;
+import icu.mabbit.rlg.security.properties.TokenProperties;
 import io.jsonwebtoken.*;
 import lombok.Getter;
 import lombok.Setter;

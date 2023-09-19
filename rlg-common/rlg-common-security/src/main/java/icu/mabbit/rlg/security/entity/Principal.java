@@ -21,7 +21,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
-public class LoginPrincipal
+public class Principal
         implements Serializable, SecurityConsts
 {
     private String uuid;
@@ -42,7 +42,7 @@ public class LoginPrincipal
      */
     private String ip;
 
-    public LoginPrincipal(Claims claims)
+    public Principal(Claims claims)
     {
         uuid = claims.get(CLAIMS_KEY_UUID, String.class);
         username = claims.get(CLAIMS_KEY_USERNAME, String.class);

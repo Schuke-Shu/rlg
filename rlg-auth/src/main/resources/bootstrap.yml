@@ -6,10 +6,10 @@ server:
 spring:
   profiles:
     # 环境配置
-    active: @app.active@
+    active: dev
   application:
     # 应用名称
-    name: @app.name@
+    name: @project.artifactId@
   cloud:
     nacos:
       username: nacos
@@ -26,6 +26,9 @@ spring:
         file-extension: yml
         group: @nacos.group@
         namespace: @nacos.namespace@
+        shared-configs:
+          - data-id: application.yml
+            group: PUBLIC
 
 # 自定义配置项
 rlg:

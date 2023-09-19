@@ -1,5 +1,6 @@
 package icu.mabbit.rlg.common.util;
 
+import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -23,29 +24,31 @@ import java.util.function.Consumer;
 public abstract class ServletUtil
 {
     /**
-     * 向浏览器端返回数据，默认设置{@code contentType}为{@code "application/json;charset=utf-8"}
+     * 将数据转换为json并返回到浏览器端，默认设置{@code contentType}为{@code "application/json;charset=utf-8"}
      *
      * @param data 要返回的数据
      */
-    public static void response(String data)
+    public static void response(Object data)
     {
         response(data, res -> res.setContentType("application/json;charset=utf-8"));
     }
 
     /**
-     * 向浏览器端返回数据，返回之前调用{@link Consumer#accept(Object)}，传入当前的{@link HttpServletResponse}对象，可以对该返回对象进行设置
+     * 将数据转换为json并返回到浏览器端，返回之前调用{@link Consumer#accept(Object)}，传入当前的{@link HttpServletResponse}对象，可以对该返回对象进行设置
      *
      * @param data 要返回的数据
      * @param responseSetting 回调函数，传入当前的{@link HttpServletResponse}对象
      */
-    public static void response(String data, Consumer<HttpServletResponse> responseSetting)
+    public static void response(Object data, Consumer<HttpServletResponse> responseSetting)
     {
         HttpServletResponse response = getResponse();
 
         responseSetting.accept(response);
         try (PrintWriter writer = response.getWriter())
         {
-            writer.write(data);
+            writer.write(
+                    JSON.toJSONString(data)
+            );
             writer.flush();
         }
         catch (IOException e)

@@ -1,11 +1,13 @@
 package icu.mabbit.rlg.security.config;
 
+import icu.mabbit.rlg.security.filter.AuthFilter;
 import icu.mabbit.rlg.security.filter.TokenFilter;
 import icu.mabbit.rlg.security.properties.SecurityProperties;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -31,6 +33,7 @@ public class SecurityConfig
 {
     private SecurityProperties securityProperties;
     private TokenFilter tokenFilter;
+    private AuthenticationManager authenticationManager;
 
     // TODO 添加自定义验证器
 
@@ -45,6 +48,13 @@ public class SecurityConfig
     protected SecurityFilterChain securityFilterChain(HttpSecurity http)
             throws Exception
     {
+        if (securityProperties.getEnableLoginAuth())
+            // 用通用自定义认证过滤器替换security自带的用户名密码认证信息过滤器
+            http.addFilterAt(
+                            new AuthFilter(authenticationManager),
+                            UsernamePasswordAuthenticationFilter.class
+                    );
+
         return
                 http
                         // 启用Security框架自带的CorsFilter过滤器，对OPTIONS请求放行
@@ -63,15 +73,15 @@ public class SecurityConfig
                         .disable()
                         .formLogin()
                         .disable()
+                        // 设置Session创建策略：从不创建
+                        .sessionManagement()
+                        .sessionCreationPolicy(SessionCreationPolicy.NEVER)
+                        .and()
                         // 将token过滤器置于Spring Security的“用户名密码认证信息过滤器”之前
                         .addFilterBefore(
                                 tokenFilter,
                                 UsernamePasswordAuthenticationFilter.class
                         )
-                        // 设置Session创建策略：从不创建
-                        .sessionManagement()
-                        .sessionCreationPolicy(SessionCreationPolicy.NEVER)
-                        .and()
                         .build();
     }
 }
