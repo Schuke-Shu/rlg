@@ -31,8 +31,10 @@
     <properties>
         <root.name>Red-leaf Garden multi-functional life service platform</root.name>
         <root.description>红叶园多功能生活服务平台</root.description>
-
-        <nacos.namespace>rlg</nacos.namespace>
+        <root.nacos.username>nacos</root.nacos.username>
+        <root.nacos.password>nacos</root.nacos.password>
+        <root.nacos.host>192.168.10.2</root.nacos.host>
+        <root.nacos.namespace>rlg</root.nacos.namespace>
 
         <java.version>1.8</java.version>
 

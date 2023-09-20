@@ -58,6 +58,7 @@ public class TokenFilter
 
         if (!valid(token))
         {
+            log.debug("Token parsed failed, to next...");
             // token无效，放行
             chain.doFilter(req, res);
             return;

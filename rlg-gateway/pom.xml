@@ -17,12 +17,7 @@
 
     <properties>
         <app.port>10086</app.port>
-        <app.name>${project.artifactId}</app.name>
-        <app.active>dev</app.active>
-
-        <nacos.group>AUTH</nacos.group>
-        <nacos.host>192.168.10.2</nacos.host>
-        <nacos.namespace>rlg</nacos.namespace>
+        <nacos.group>GATEWAY</nacos.group>
     </properties>
 
     <dependencies>

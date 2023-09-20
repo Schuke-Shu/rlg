@@ -23,26 +23,7 @@ public class AuthToken
     /**
      * 登录时存放token，其他请求用于存放解析token后获取的当事人
      */
-    private Object principal;
-
-    /**
-     * 存放登录凭证，例如密码、验证码
-     */
-    private Object credentials;
-
-    public AuthToken()
-    {
-        super(null);
-        setAuthenticated(false);
-    }
-
-    public AuthToken(Object principal, Object credentials)
-    {
-        super(null);
-        this.principal = principal;
-        this.credentials = credentials;
-        setAuthenticated(false);
-    }
+    private final Object principal;
 
     public AuthToken(
             Object principal,
@@ -55,15 +36,15 @@ public class AuthToken
     }
 
     @Override
-    public Object getCredentials()
-    {
-        return this.credentials;
-    }
-
-    @Override
     public Object getPrincipal()
     {
         return this.principal;
+    }
+
+    @Override
+    public Object getCredentials()
+    {
+        throw new RuntimeException();
     }
 
     @Override
@@ -75,13 +56,6 @@ public class AuthToken
                 "Cannot set this token to trusted - use constructor which takes a GrantedAuthority ls instead"
         );
         super.setAuthenticated(false);
-    }
-
-    @Override
-    public void eraseCredentials()
-    {
-        super.eraseCredentials();
-        this.credentials = null;
     }
 
     /**

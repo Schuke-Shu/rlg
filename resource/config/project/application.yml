@@ -1,0 +1,15 @@
+# Spring 配置
+spring:
+  mvc:
+    servlet:
+      # 关闭懒加载
+      load-on-startup: 1
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+# 自定义配置项
+rlg:
+  # 文档配置
+  swagger:
+    version: ${rlg.project-info.version}
+    group-name: ${rlg.project-info.name}

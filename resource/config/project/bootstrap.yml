@@ -6,29 +6,33 @@ server:
 spring:
   profiles:
     # 环境配置
-    active: @app.active@
+    active: dev
   application:
     # 应用名称
-    name: @app.name@
+    name: @project.artifactId@
   cloud:
     nacos:
-      username: nacos
-      password: nacos
+      username: @root.nacos.username@
+      password: @root.nacos.password@
       discovery:
         # 服务注册地址
-        server-addr: @nacos.host@:8848
+        server-addr: @root.nacos.host@:8848
         group: @nacos.group@
-        namespace: @nacos.namespace@
+        namespace: @root.nacos.namespace@
       config:
         # 配置中心地址
-        server-addr: @nacos.host@:8848
+        server-addr: @root.nacos.host@:8848
         # 配置文件格式
         file-extension: yml
         group: @nacos.group@
-        namespace: @nacos.namespace@
+        namespace: @root.nacos.namespace@
         shared-configs:
-          - data-id: application.yml
+          - data-id: application.${spring.cloud.nacos.config.file-extension}
             group: PUBLIC
+            refresh: true
+          - data-id: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+            group: PUBLIC
+            refresh: true
 
 # 自定义配置项
 rlg:
@@ -37,7 +41,9 @@ rlg:
     # 名称
     name: @root.name@
     # 版本
-    version: @root.version@
+    version: @project.version@
+    # 描述
+    description: @root.description@
   # 模块信息
   module-info:
     # 名称

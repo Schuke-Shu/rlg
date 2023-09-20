@@ -1,3 +1,4 @@
+icu.mabbit.rlg.security.config.NullManager
 icu.mabbit.rlg.security.config.SecurityConfig
 icu.mabbit.rlg.security.filter.TokenFilter
 icu.mabbit.rlg.security.properties.SecurityProperties
