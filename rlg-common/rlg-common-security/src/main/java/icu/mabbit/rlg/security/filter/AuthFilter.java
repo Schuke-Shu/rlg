@@ -4,9 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import icu.mabbit.mdk4j.core.lang.Assert;
-import icu.mabbit.rlg.security.token.AuthToken;
 import icu.mabbit.rlg.security.config.AuthManager;
-import icu.mabbit.rlg.security.exception.AuthException;
+import icu.mabbit.rlg.security.token.AuthToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.Authentication;
@@ -29,14 +28,6 @@ public class AuthFilter
     private static final String LOGIN_URI = "/login";
     private static final String POST = "POST";
     private static final AntPathRequestMatcher DEFAULT_ANT_PATH_REQUEST_MATCHER = new AntPathRequestMatcher(LOGIN_URI, POST);
-    /**
-     * 账户
-     */
-    private static final String ACCOUNT_PARAM = "account";
-    /**
-     * 登录密钥
-     */
-    private static final String KEY_PARAM = "key";
 
     public AuthFilter(AuthenticationManager authenticationManager)
     {
@@ -54,17 +45,10 @@ public class AuthFilter
         if (!method.equals(POST))
             throw new AuthenticationServiceException("Authentication method not supported: " + method);
 
-        // 新建令牌
-        AuthToken token =
-                new AuthToken(
-                        request.getParameter(ACCOUNT_PARAM),
-                        request.getParameter(KEY_PARAM)
-                );
-
         // AuthenticationManager必须是自定义的Manager
         AuthenticationManager manager = getAuthenticationManager();
-        Assert.isInstanceOf(AuthManager.class, manager, () -> new AuthException("The [AuthenticationManager] must be [icu.mabbit.rlg.security.config.AuthManager]"));
+        Assert.isInstanceOf(AuthManager.class, manager, () -> new AuthenticationServiceException("The [AuthenticationManager] must be [icu.mabbit.rlg.security.config.AuthManager]"));
 
-        return manager.authenticate(token);
+        return manager.authenticate(new AuthToken());
     }
 }

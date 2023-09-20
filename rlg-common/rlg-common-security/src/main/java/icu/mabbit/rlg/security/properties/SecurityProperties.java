@@ -24,10 +24,6 @@ public class SecurityProperties
     public static final String PREFIX = "rlg.security";
 
     /**
-     * 启用登陆验证功能，若开启，则在spring-security中添加自定义的登录验证类
-     */
-    private Boolean enableLoginAuth = false;
-    /**
      * uri白名单
      */
     private String[] uriWhiteList = {};

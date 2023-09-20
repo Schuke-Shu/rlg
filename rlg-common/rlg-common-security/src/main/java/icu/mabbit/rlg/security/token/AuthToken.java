@@ -23,12 +23,18 @@ public class AuthToken
     /**
      * 登录时存放token，其他请求用于存放解析token后获取的当事人
      */
-    private final Object principal;
+    private Object principal;
 
     /**
      * 存放登录凭证，例如密码、验证码
      */
     private Object credentials;
+
+    public AuthToken()
+    {
+        super(null);
+        setAuthenticated(false);
+    }
 
     public AuthToken(Object principal, Object credentials)
     {

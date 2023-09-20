@@ -1,6 +1,5 @@
 package icu.mabbit.rlg.security.config;
 
-import icu.mabbit.rlg.security.filter.AuthFilter;
 import icu.mabbit.rlg.security.filter.TokenFilter;
 import icu.mabbit.rlg.security.properties.SecurityProperties;
 import lombok.Setter;
@@ -35,8 +34,6 @@ public class SecurityConfig
     private TokenFilter tokenFilter;
     private AuthenticationManager authenticationManager;
 
-    // TODO 添加自定义验证器
-
     // 加密编码器
     @Bean
     public PasswordEncoder passwordEncoder()
@@ -48,13 +45,6 @@ public class SecurityConfig
     protected SecurityFilterChain securityFilterChain(HttpSecurity http)
             throws Exception
     {
-        if (securityProperties.getEnableLoginAuth())
-            // 用通用自定义认证过滤器替换security自带的用户名密码认证信息过滤器
-            http.addFilterAt(
-                            new AuthFilter(authenticationManager),
-                            UsernamePasswordAuthenticationFilter.class
-                    );
-
         return
                 http
                         // 启用Security框架自带的CorsFilter过滤器，对OPTIONS请求放行
@@ -78,7 +68,7 @@ public class SecurityConfig
                         .sessionCreationPolicy(SessionCreationPolicy.NEVER)
                         .and()
                         // 将token过滤器置于Spring Security的“用户名密码认证信息过滤器”之前
-                        .addFilterBefore(
+                        .addFilterAt(
                                 tokenFilter,
                                 UsernamePasswordAuthenticationFilter.class
                         )
