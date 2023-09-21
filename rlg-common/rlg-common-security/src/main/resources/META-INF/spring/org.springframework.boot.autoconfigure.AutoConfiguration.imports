@@ -1,6 +1,6 @@
-icu.mabbit.rlg.security.config.NullManager
-icu.mabbit.rlg.security.config.SecurityConfig
-icu.mabbit.rlg.security.filter.TokenFilter
-icu.mabbit.rlg.security.properties.SecurityProperties
-icu.mabbit.rlg.security.properties.TokenProperties
-icu.mabbit.rlg.security.util.TokenUtil
+icu.mabbit.rlg.common.security.config.NullManager
+icu.mabbit.rlg.common.security.config.SecurityConfig
+icu.mabbit.rlg.common.security.filter.TokenFilter
+icu.mabbit.rlg.common.security.properties.SecurityProperties
+icu.mabbit.rlg.common.security.properties.TokenProperties
+icu.mabbit.rlg.common.security.util.TokenUtil

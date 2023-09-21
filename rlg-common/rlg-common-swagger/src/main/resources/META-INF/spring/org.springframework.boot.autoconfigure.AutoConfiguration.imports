@@ -1,2 +1,2 @@
-icu.mabbit.rlg.common.config.SwaggerConfig
-icu.mabbit.rlg.common.properties.SwaggerProperties
+icu.mabbit.rlg.common.swagger.config.SwaggerConfig
+icu.mabbit.rlg.common.swagger.properties.SwaggerProperties

@@ -1,14 +1,14 @@
 package icu.mabbit.rlg.test.controller;
 
-import icu.mabbit.rlg.captcha.annotation.CaptchaApi;
-import icu.mabbit.rlg.captcha.cache.CaptchaApiCache;
-import icu.mabbit.rlg.captcha.entity.Captcha;
-import icu.mabbit.rlg.common.annotation.Api;
-import icu.mabbit.rlg.common.properties.ProjectInfo;
-import icu.mabbit.rlg.common.restful.R;
-import icu.mabbit.rlg.common.restful.SuccessResult;
-import icu.mabbit.rlg.common.util.ServletUtil;
-import icu.mabbit.rlg.security.properties.SecurityProperties;
+import icu.mabbit.rlg.common.captcha.annotation.CaptchaApi;
+import icu.mabbit.rlg.common.captcha.cache.CaptchaApiCache;
+import icu.mabbit.rlg.common.captcha.entity.Captcha;
+import icu.mabbit.rlg.common.core.annotation.Api;
+import icu.mabbit.rlg.common.core.properties.ProjectInfo;
+import icu.mabbit.rlg.common.core.restful.R;
+import icu.mabbit.rlg.common.core.restful.SuccessResult;
+import icu.mabbit.rlg.common.core.util.ServletUtil;
+import icu.mabbit.rlg.common.security.properties.SecurityProperties;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.Setter;

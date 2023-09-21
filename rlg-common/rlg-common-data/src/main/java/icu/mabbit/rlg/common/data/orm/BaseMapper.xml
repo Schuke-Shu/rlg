@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- modify namespace !!! -->
+<mapper namespace="icu.mabbit.rlg.common.data.orm.BaseMapper">
+    <!-- ========== Base CRUD ========== -->
+    <!-- table name -->
+    <sql id="tn">xxx</sql>
+    <!-- primary key name -->
+    <sql id="pn">xxx</sql>
+    <sql id="BaseColumns">
+        <!-- add base columns -->
+    </sql>
+    <sql id="BaseSelectColumns">
+        <!-- add base columns -->, create_time, modified_time
+    </sql>
+    <sql id="save">
+        #{i.}, #{i.}
+    </sql>
+    <sql id="BaseCount">
+        select count(*) from <include refid="tn" />
+    </sql>
+
+    <resultMap id="BaseResultMap" type="">
+        <id column="" property="" />
+        <result column="" property="" />
+    </resultMap>
+
+    <insert id="save" useGeneratedKeys="true" keyColumn="" keyProperty="">
+        insert into <include refid="tn" />(<include refid="BaseColumns" />)
+        values
+        <foreach collection="array" item="i" separator=", ">
+            (<include refid="save" />)
+        </foreach>
+    </insert>
+
+    <delete id="remove">
+        delete from <include refid="tn" />
+        where <include refid="pn" /> in
+        <foreach collection="array" item="i" open="(" close=")" separator=", ">#{i}</foreach>
+    </delete>
+
+    <update id="update">
+        update <include refid="tn" />
+        <set>
+            <if test="xxx">xxx = #{}</if>
+        </set>
+        <where>
+            <include refid="pn" /> = #{xxx}
+        </where>
+    </update>
+
+    <select id="query" resultMap="BaseResultMap">
+        select
+            <include refid="BaseSelectColumns" />
+        from <include refid="tn" />
+        <where>
+            <include refid="pn" /> in
+            <foreach collection="array" item="i" open="(" close=")" separator=", ">#{i}</foreach>
+        </where>
+    </select>
+
+    <select id="queries" resultMap="BaseResultMap">
+        select
+            <include refid="BaseSelectColumns" />
+        from <include refid="tn" />
+    </select>
+
+    <select id="count" resultType="int">
+        <include refid="BaseCount" />
+    </select>
+</mapper>
