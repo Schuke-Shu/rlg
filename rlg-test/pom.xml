@@ -16,8 +16,6 @@
 
     <properties>
         <app.port>9999</app.port>
-
-        <nacos.group>TEST</nacos.group>
     </properties>
 
     <dependencies>

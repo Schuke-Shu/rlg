@@ -36,7 +36,7 @@ public abstract class ServletUtil
     /**
      * 将数据转换为json并返回到浏览器端，返回之前调用{@link Consumer#accept(Object)}，传入当前的{@link HttpServletResponse}对象，可以对该返回对象进行设置
      *
-     * @param data 要返回的数据
+     * @param data            要返回的数据
      * @param responseSetting 回调函数，传入当前的{@link HttpServletResponse}对象
      */
     public static void response(Object data, Consumer<HttpServletResponse> responseSetting)

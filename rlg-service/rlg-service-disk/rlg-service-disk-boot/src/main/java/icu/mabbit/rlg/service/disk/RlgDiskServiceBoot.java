@@ -12,11 +12,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date 2023/9/2 14:44
  */
 @SpringBootApplication
-public class RlgDiskServiceApplication
+public class RlgDiskServiceBoot
 {
     public static void main(String[] args)
     {
-        SpringApplication.run(RlgDiskServiceApplication.class, args);
+        SpringApplication.run(RlgDiskServiceBoot.class, args);
         System.out.println("\n(♥◠‿◠)ﾉﾞ  网盘服务启动成功  ლ(´ڡ`ლ)ﾞ\n");
     }
 }

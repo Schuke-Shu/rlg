@@ -12,11 +12,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date 2023/9/2 14:44
  */
 @SpringBootApplication
-public class RlgUserServiceApplication
+public class RlgUserServiceBoot
 {
     public static void main(String[] args)
     {
-        SpringApplication.run(RlgUserServiceApplication.class, args);
+        SpringApplication.run(RlgUserServiceBoot.class, args);
         System.out.println("\n(♥◠‿◠)ﾉﾞ  用户服务启动成功  ლ(´ڡ`ლ)ﾞ\n");
     }
 }

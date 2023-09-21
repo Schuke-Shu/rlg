@@ -17,21 +17,18 @@ spring:
       discovery:
         # 服务注册地址
         server-addr: @root.nacos.host@:8848
-        group: @nacos.group@
-        namespace: @root.nacos.namespace@
+        group: @root.nacos.group@
+        namespace: ${spring.profiles.active}
       config:
         # 配置中心地址
         server-addr: @root.nacos.host@:8848
         # 配置文件格式
         file-extension: yml
-        group: @nacos.group@
-        namespace: @root.nacos.namespace@
+        group: @root.nacos.group@
+        namespace: ${spring.profiles.active}
         shared-configs:
           - data-id: application.${spring.cloud.nacos.config.file-extension}
-            group: PUBLIC
-            refresh: true
-          - data-id: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
-            group: PUBLIC
+            group: @root.nacos.group@
             refresh: true
 
 # 自定义配置项

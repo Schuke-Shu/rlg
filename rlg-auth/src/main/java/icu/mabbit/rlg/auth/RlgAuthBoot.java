@@ -12,11 +12,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date 2023/9/2 14:44
  */
 @SpringBootApplication
-public class RlgAuthApplication
+public class RlgAuthBoot
 {
     public static void main(String[] args)
     {
-        SpringApplication.run(RlgAuthApplication.class, args);
+        SpringApplication.run(RlgAuthBoot.class, args);
         System.out.println("\n(♥◠‿◠)ﾉﾞ  身份认证中心启动成功  ლ(´ڡ`ლ)ﾞ\n");
     }
 }

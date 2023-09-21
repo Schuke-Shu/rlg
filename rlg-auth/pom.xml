@@ -18,8 +18,6 @@
 
     <properties>
         <app.port>10087</app.port>
-
-        <nacos.group>AUTH</nacos.group>
     </properties>
 
     <dependencies>

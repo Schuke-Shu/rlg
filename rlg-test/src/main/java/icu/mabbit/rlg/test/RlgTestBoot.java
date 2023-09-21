@@ -12,11 +12,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Date 2023/9/8 10:11
  */
 @SpringBootApplication
-public class RlgTestApplication
+public class RlgTestBoot
 {
     public static void main(String[] args)
     {
-        SpringApplication.run(RlgTestApplication.class, args);
+        SpringApplication.run(RlgTestBoot.class, args);
         System.out.println("\n(♥◠‿◠)ﾉﾞ  测试模块启动成功  ლ(´ڡ`ლ)ﾞ\n");
     }
 }

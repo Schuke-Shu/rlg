@@ -34,12 +34,13 @@
         <root.nacos.username>nacos</root.nacos.username>
         <root.nacos.password>nacos</root.nacos.password>
         <root.nacos.host>192.168.10.2</root.nacos.host>
-        <root.nacos.namespace>rlg</root.nacos.namespace>
+        <root.nacos.group>RLG</root.nacos.group>
 
         <java.version>1.8</java.version>
+        <rlg.groupId>icu.mabbit.rlg</rlg.groupId>
+        <rlg.version>1.0</rlg.version>
 
         <mdk4j.version>1.0</mdk4j.version>
-        <rlg.version>1.0</rlg.version>
 
         <fastjson.version>2.0.25</fastjson.version>
         <jjwt.version>0.9.1</jjwt.version>
@@ -83,47 +84,47 @@
 
             <!-- System version management -->
             <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
+                <groupId>${rlg.groupId}</groupId>
                 <artifactId>rlg-common-captcha</artifactId>
                 <version>${rlg.version}</version>
             </dependency>
             <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
+                <groupId>${rlg.groupId}</groupId>
                 <artifactId>rlg-common-core</artifactId>
                 <version>${rlg.version}</version>
             </dependency>
             <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
+                <groupId>${rlg.groupId}</groupId>
                 <artifactId>rlg-common-data</artifactId>
                 <version>${rlg.version}</version>
             </dependency>
             <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
+                <groupId>${rlg.groupId}</groupId>
                 <artifactId>rlg-common-redis</artifactId>
                 <version>${rlg.version}</version>
             </dependency>
             <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
+                <groupId>${rlg.groupId}</groupId>
                 <artifactId>rlg-common-security</artifactId>
                 <version>${rlg.version}</version>
             </dependency>
             <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
+                <groupId>${rlg.groupId}</groupId>
                 <artifactId>rlg-common-swagger</artifactId>
                 <version>${rlg.version}</version>
             </dependency>
             <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
+                <groupId>${rlg.groupId}</groupId>
                 <artifactId>rlg-common-test</artifactId>
                 <version>${rlg.version}</version>
             </dependency>
             <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
+                <groupId>${rlg.groupId}</groupId>
                 <artifactId>rlg-service-disk-api</artifactId>
                 <version>${rlg.version}</version>
             </dependency>
             <dependency>
-                <groupId>icu.mabbit.rlg</groupId>
+                <groupId>${rlg.groupId}</groupId>
                 <artifactId>rlg-service-user-api</artifactId>
                 <version>${rlg.version}</version>
             </dependency>
