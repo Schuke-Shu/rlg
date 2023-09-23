@@ -2,6 +2,6 @@
 rlg:
   # 文档配置
   swagger:
-    title: 身份认证中心
+    title: 身份认证中心接口
     description: 红叶园多功能生活服务平台身份认证中心API文档
     term-of-service-url: http://www.apache.org/licenses/LICENSE-2.0

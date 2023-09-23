@@ -16,13 +16,23 @@
 
     <dependencies>
         <dependency>
-            <groupId>icu.mabbit.rlg</groupId>
+            <groupId>${rlg.groupId}</groupId>
             <artifactId>rlg-common-core</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>icu.mabbit.rlg</groupId>
+            <groupId>${rlg.groupId}</groupId>
             <artifactId>rlg-common-swagger</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>icu.mabbit.rlg</groupId>
+            <artifactId>rlg-common-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
     </dependencies>
 </project>

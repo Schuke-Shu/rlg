@@ -42,6 +42,7 @@
 
         <mdk4j.version>1.0</mdk4j.version>
 
+        <dubbo.version>2.7.8</dubbo.version>
         <fastjson.version>2.0.25</fastjson.version>
         <jjwt.version>0.9.1</jjwt.version>
         <knife4j.version>4.3.0</knife4j.version>
@@ -189,6 +190,13 @@
                 <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!-- Spring-Cloud Dubbo -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

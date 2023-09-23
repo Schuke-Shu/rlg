@@ -26,7 +26,7 @@ spring:
         file-extension: yml
         group: @root.nacos.group@
         namespace: ${spring.profiles.active}
-        shared-configs:
+        extension-configs:
           - data-id: application.${spring.cloud.nacos.config.file-extension}
             group: @root.nacos.group@
             refresh: true

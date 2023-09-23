@@ -1,19 +1,13 @@
 package icu.mabbit.rlg.test.controller;
 
-import icu.mabbit.rlg.common.captcha.annotation.CaptchaApi;
-import icu.mabbit.rlg.common.captcha.cache.CaptchaApiCache;
-import icu.mabbit.rlg.common.captcha.entity.Captcha;
-import icu.mabbit.rlg.common.core.annotation.Api;
+import icu.mabbit.rlg.common.swagger.annotation.Api;
 import icu.mabbit.rlg.common.core.properties.ProjectInfo;
 import icu.mabbit.rlg.common.core.restful.R;
 import icu.mabbit.rlg.common.core.restful.SuccessResult;
-import icu.mabbit.rlg.common.core.util.ServletUtil;
 import icu.mabbit.rlg.common.security.properties.SecurityProperties;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import icu.mabbit.rlg.common.swagger.annotation.GetUri;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -27,30 +21,20 @@ import java.util.Map;
  * @Module test
  * @Date 2023/9/8 10:06
  */
-@Api
-@Tag(name = "测试")
+@Api(name = "测试")
 @Setter(onMethod_ = @Autowired)
 public class TestController
 {
-    private CaptchaApiCache captchaApiCache;
     private SecurityProperties securityProperties;
     private ProjectInfo projectInfo;
 
-    @CaptchaApi
-    @GetMapping("/hello")
-    @Operation(summary = "测试接口")
+    @GetUri(value = "/hello", summary = "测试")
     public SuccessResult<?> test()
     {
-        Captcha<?> captcha = captchaApiCache.get("/hello").captcha();
-        String uri = ServletUtil.getRequestURI();
-        System.out.println(uri);
-        captcha.setUuid(uri, "123456");
-        return R.ok(captcha);
+        return R.ok();
     }
 
-    @CaptchaApi
-    @GetMapping("/nacos")
-    @Operation(summary = "nacos测试接口")
+    @GetUri(value = "/nacos", summary = "nacos测试")
     public SuccessResult<?> nacos()
     {
         Map<String, String> map = new HashMap<>();

@@ -4,6 +4,8 @@ server:
 
 # Spring 配置
 spring:
+  main:
+    web-application-type: reactive
   profiles:
     # 环境配置
     active: dev
@@ -26,7 +28,7 @@ spring:
         file-extension: yml
         group: @root.nacos.group@
         namespace: ${spring.profiles.active}
-        shared-configs:
+        extension-configs:
           - data-id: application.${spring.cloud.nacos.config.file-extension}
             group: @root.nacos.group@
             refresh: true

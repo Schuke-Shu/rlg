@@ -1,9 +1,10 @@
 package icu.mabbit.rlg.common.captcha.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import icu.mabbit.mdk4j.core.lang.Assert;
 import icu.mabbit.mdk4j.core.util.StringUtil;
-import icu.mabbit.rlg.common.core.exception.ProjectException;
-import lombok.Getter;
+import icu.mabbit.rlg.common.captcha.exception.CaptchaException;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -18,6 +19,7 @@ import java.util.UUID;
  * @Module common-captcha
  * @Date 2023/9/16 16:46
  */
+@Data
 public class Captcha<T extends Serializable>
         implements Serializable
 {
@@ -26,41 +28,37 @@ public class Captcha<T extends Serializable>
     /**
      * 用于展示的验证码
      */
-    @Getter
     private final T body;
     /**
      * 验证码字符串
      */
-    @Getter
     @JsonIgnore
     private final String code;
 
-    private String uuid;
-
     public Captcha(T body, String code)
     {
+        Assert.notNull(body, CaptchaException::new);
+        Assert.notNull(code, CaptchaException::new);
+
         this.body = body;
         this.code = code;
     }
 
-    public String getUuid()
+    public String uuid(String uri, String account)
     {
-        if (uuid == null)
-            throw new ProjectException("Captcha uuid is null, need to call [uuid(String, String)] first");
+        Assert.paramNotNull(uri);
+        Assert.paramNotNull(account);
 
-        return uuid;
-    }
-
-    public Captcha<?> setUuid(String uri, String account)
-    {
-        uuid = UUID.nameUUIDFromBytes(
-                        StringUtil.joiner("/")
-                                .add(uri)
-                                .add(account)
-                                .toString()
-                                .getBytes()
-                )
-                .toString();
-        return this;
+        return
+                UUID
+                        .nameUUIDFromBytes(
+                                StringUtil
+                                        .joiner("/")
+                                        .add(uri)
+                                        .add(account)
+                                        .toString()
+                                        .getBytes()
+                        )
+                                .toString();
     }
 }

@@ -20,4 +20,11 @@
         <module>rlg-service-disk</module>
         <module>rlg-service-user</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>${rlg.groupId}</groupId>
+            <artifactId>rlg-common-core</artifactId>
+        </dependency>
+    </dependencies>
 </project>

@@ -20,23 +20,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>icu.mabbit.rlg</groupId>
+            <groupId>${rlg.groupId}</groupId>
             <artifactId>rlg-common-captcha</artifactId>
         </dependency>
         <dependency>
-            <groupId>icu.mabbit.rlg</groupId>
-            <artifactId>rlg-common-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>icu.mabbit.rlg</groupId>
+            <groupId>${rlg.groupId}</groupId>
             <artifactId>rlg-common-security</artifactId>
         </dependency>
-        <dependency>
-            <groupId>icu.mabbit.rlg</groupId>
-            <artifactId>rlg-common-swagger</artifactId>
-        </dependency>
 <!--        <dependency>-->
-<!--            <groupId>icu.mabbit.rlg</groupId>-->
+<!--            <groupId>${rlg.groupId}</groupId>-->
 <!--            <artifactId>rlg-common-data</artifactId>-->
 <!--        </dependency>-->
     </dependencies>

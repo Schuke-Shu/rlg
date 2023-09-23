@@ -27,8 +27,4 @@ public class SecurityProperties
      * uri白名单
      */
     private String[] uriWhiteList = {};
-    /**
-     * 登录方式请求头
-     */
-    private String loginWayHeader = "Login-Way";
 }

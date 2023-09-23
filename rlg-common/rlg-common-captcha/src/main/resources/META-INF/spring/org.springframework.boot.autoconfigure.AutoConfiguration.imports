@@ -1,3 +1,2 @@
-icu.mabbit.rlg.common.captcha.cache.CaptchaApiCache
-icu.mabbit.rlg.common.captcha.controller.CaptchaController
+icu.mabbit.rlg.common.captcha.properties.CaptchaProperties
 icu.mabbit.rlg.common.captcha.service.impl.CaptchaServiceImpl

@@ -44,8 +44,6 @@ rlg:
       - /v3/api-docs
       - /webjars/**
       - /favicon.ico
-    # 登录方式请求头
-    login-way-header:
   # token配置
   token:
     # token签名算法

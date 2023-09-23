@@ -36,11 +36,4 @@ public class ProjectException
     {
         super(message, cause, enableSuppression, writableStackTrace);
     }
-
-    @Override
-    public ProjectException detail(String detail)
-    {
-        super.detail(detail);
-        return this;
-    }
 }

@@ -1,5 +1,9 @@
 package icu.mabbit.rlg.common.core.exception;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
 /**
  * <h2>异常基类</h2>
  *
@@ -8,6 +12,9 @@ package icu.mabbit.rlg.common.core.exception;
  * @Module common-core
  * @Date 2023/9/7 15:15
  */
+@Data
+@Accessors(chain = true)
+@EqualsAndHashCode(callSuper = true)
 public class BaseException
         extends RuntimeException
 {
@@ -38,16 +45,5 @@ public class BaseException
     public BaseException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)
     {
         super(message, cause, enableSuppression, writableStackTrace);
-    }
-
-    public String detail()
-    {
-        return detail;
-    }
-
-    public BaseException detail(String detail)
-    {
-        this.detail = detail;
-        return this;
     }
 }

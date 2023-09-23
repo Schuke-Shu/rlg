@@ -1,5 +1,8 @@
-package icu.mabbit.rlg.common.core.annotation;
+package icu.mabbit.rlg.common.swagger.annotation;
 
+import io.swagger.v3.oas.annotations.ExternalDocumentation;
+import io.swagger.v3.oas.annotations.extensions.Extension;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,14 +16,14 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * <h2>Api注解</h2>
+ * <h2>控制器注解</h2>
  * <p>
- *     组合了{@link RestController}和{@link RequestMapping}的注解
+ *     组合了{@link RestController}、{@link RequestMapping}、{@link Tag}
  * </p>
  *
  * @author 一只枫兔
  * @Project rlg
- * @Module common-core
+ * @Module common-swagger
  * @Date 2023/9/18 13:17
  */
 @Target(TYPE)
@@ -28,6 +31,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Documented
 @RestController
 @RequestMapping
+@Tag(name = "")
 public @interface Api
 {
     @AliasFor(annotation = RequestMapping.class)
@@ -59,4 +63,16 @@ public @interface Api
 
     @AliasFor(annotation = RequestMapping.class)
     String[] produces() default {};
+
+    @AliasFor(annotation = Tag.class)
+    String name();
+
+    @AliasFor(annotation = Tag.class)
+    String description() default "";
+
+    @AliasFor(annotation = Tag.class)
+    ExternalDocumentation externalDocs() default @ExternalDocumentation();
+
+    @AliasFor(annotation = Tag.class)
+    Extension[] extensions() default {};
 }

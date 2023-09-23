@@ -16,7 +16,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>icu.mabbit.rlg</groupId>
+            <groupId>${rlg.groupId}</groupId>
             <artifactId>rlg-common-core</artifactId>
         </dependency>
         <dependency>

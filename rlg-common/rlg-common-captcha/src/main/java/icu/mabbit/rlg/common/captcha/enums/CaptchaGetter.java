@@ -31,7 +31,7 @@ public enum CaptchaGetter
             },
     ;
 
-    private static final String CHARS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static final String CHARS = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public static final String DIGITS = "0123456789";
     public static final int DEFAULT_NUM = 6;
 

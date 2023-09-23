@@ -7,7 +7,7 @@ logging:
 rlg:
   # 文档配置
   swagger:
-    title: 测试
+    title: 测试接口
     description: 红叶园多功能生活服务平台测试模块API文档
     term-of-service-url: http://www.apache.org/licenses/LICENSE-2.0
   # 安全配置

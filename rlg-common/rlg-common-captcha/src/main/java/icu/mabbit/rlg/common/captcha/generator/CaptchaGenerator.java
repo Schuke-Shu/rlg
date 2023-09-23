@@ -1,5 +1,6 @@
 package icu.mabbit.rlg.common.captcha.generator;
 
+import icu.mabbit.rlg.common.captcha.consts.CaptchaConsts;
 import icu.mabbit.rlg.common.captcha.entity.Captcha;
 
 /**
@@ -10,8 +11,17 @@ import icu.mabbit.rlg.common.captcha.entity.Captcha;
  * @Module common-captcha
  * @Date 2023/9/7 11:06
  */
-public abstract class CaptchaGenerator
+public abstract class CaptchaGenerator implements CaptchaConsts
 {
+    /**
+     * @return 6位包含大小写字母与数字的验证码
+     * @see CaptchaGenerator#randomStr(String, int)
+     */
+    public static Captcha<String> randomStr()
+    {
+        return randomStr(CHARS, DEFAULT_LEN_6);
+    }
+
     /**
      * 随机字符验证码，每次从指定的字符序列中随机取出某个位置的字符，取{@code num}个，然后拼成新的字符串
      *
