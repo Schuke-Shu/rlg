@@ -54,6 +54,6 @@ public abstract class R
      */
     public static <E extends ServiceException> FailedResult fail(E e)
     {
-        return new FailedResult(e.code(), e.getMessage());
+        return new FailedResult(e.getCode(), e.getMessage());
     }
 }
