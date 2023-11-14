@@ -62,7 +62,7 @@ public enum Boolean
      * 将布尔值转换为数值
      *
      * @param b 布尔值
-     * @return 若为true返回 {@code 1}，否则返回 {@link 0}
+     * @return 若为true返回 {@code 1}，否则返回 {@code 0}
      */
     public static int convert(boolean b)
     {

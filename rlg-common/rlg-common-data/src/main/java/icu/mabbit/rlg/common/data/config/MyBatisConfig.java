@@ -20,9 +20,9 @@ import java.util.List;
  */
 @Configuration
 @MapperScan("icu.mabbit.rlg.**.mapper")
-@Setter(onMethod_ = @Autowired)
 public class MyBatisConfig
 {
+    @Setter(onMethod_ = @Autowired)
     private List<SqlSessionFactory> sqlSessionFactoryList;
 
     private static final InsertUpdateTimeInterceptor INTERCEPTOR = new InsertUpdateTimeInterceptor();
